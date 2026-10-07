@@ -1,1 +1,224 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mapa de dependencias - Policía de Tierra del Fuego</title><link rel="stylesheet" href="css/styles.css"></head><body><section class="pdtf-safety"><div class="pdtf-panel"><header class="pdtf-header"><a href="index.html" class="pdtf-back">← Volver al panel principal</a><div class="pdtf-header__brand"><img src="images/Escudo oro.png" alt="Escudo Policía de Tierra del Fuego" class="pdtf-header__logo"><div><p class="pdtf-kicker">Policía de Tierra del Fuego</p><h1 class="pdtf-title">Mapa de dependencias</h1></div></div><p class="pdtf-intro">Ubicación de comisarías, destacamentos y puestos policiales de la provincia.</p></header><main class="pdtf-page-content"><div class="pdtf-placeholder">Este espacio está preparado para incorporar un mapa interactivo de las dependencias policiales.</div></main><footer class="pdtf-footer">Policía de Tierra del Fuego A.e I.A.S.</footer></div></section></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mapa de dependencias - Policía de Tierra del Fuego</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Leaflet CSS y JS para el mapa interactivo (OpenStreetMap, 100% gratuito) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <style>
+    #map {
+      width: 100%;
+      height: 420px;
+      border-radius: var(--pdtf-radius-md);
+      box-shadow: 0 4px 14px rgba(23,57,75,.08);
+      z-index: 1;
+    }
+    .gps-status-card {
+      background: #fff;
+      border: 1px solid var(--pdtf-line);
+      border-radius: var(--pdtf-radius-md);
+      padding: 16px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .gps-status-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .gps-icon-wrapper {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(23,57,75,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--pdtf-blue);
+      flex-shrink: 0;
+    }
+    .gps-icon-wrapper.active {
+      background: rgba(4, 126, 26, 0.12);
+      color: var(--pdtf-green);
+    }
+    .gps-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 10px;
+      background: var(--pdtf-blue);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--pdtf-transition);
+    }
+    .gps-btn:hover {
+      background: var(--pdtf-blue-dark);
+      transform: translateY(-1px);
+    }
+    .nearest-banner {
+      background: linear-gradient(135deg, var(--pdtf-blue), var(--pdtf-blue-dark));
+      color: #fff;
+      padding: 20px;
+      border-radius: var(--pdtf-radius-md);
+      margin-top: 18px;
+      box-shadow: var(--pdtf-shadow);
+      display: none;
+    }
+    .nearest-banner.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+    .nearest-badge {
+      display: inline-block;
+      background: var(--pdtf-lime);
+      color: var(--pdtf-blue);
+      font-size: 11px;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .nearest-title {
+      font-size: 20px;
+      font-weight: 900;
+      margin: 0 0 6px;
+    }
+    .nearest-dist {
+      font-size: 14px;
+      color: rgba(255,255,255,0.88);
+      margin-bottom: 14px;
+    }
+    .nearest-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .nearest-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--pdtf-blue);
+      font-size: 12px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: var(--pdtf-transition);
+    }
+    .nearest-btn:hover {
+      background: var(--pdtf-lime);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Estilos del popup Leaflet personalizado */
+    .leaflet-popup-content-wrapper {
+      border-radius: 12px;
+      padding: 4px;
+    }
+    .popup-content h4 {
+      margin: 0 0 4px;
+      font-size: 14px;
+      color: var(--pdtf-blue);
+    }
+    .popup-content p {
+      margin: 0 0 8px;
+      font-size: 12px;
+      color: #555;
+    }
+    .popup-link {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--pdtf-blue);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <section class="pdtf-safety">
+    <div class="pdtf-panel">
+      <header class="pdtf-header">
+        <a href="index.html" class="pdtf-back">← Volver al panel principal</a>
+        <div class="pdtf-header__brand">
+          <img src="images/Escudo oro.png" alt="Escudo Policía de Tierra del Fuego" class="pdtf-header__logo">
+          <div>
+            <p class="pdtf-kicker">Policía de Tierra del Fuego</p>
+            <h1 class="pdtf-title">Mapa de dependencias</h1>
+          </div>
+        </div>
+        <p class="pdtf-intro">Geolocalización y mapa de comisarías en Tierra del Fuego. Tu ubicación nos ayuda a indicarte la comisaría más cercana en caso de ayuda.</p>
+      </header>
+
+      <main class="pdtf-page-content">
+        <!-- Estado de GPS y selector -->
+        <div class="gps-status-card">
+          <div class="gps-status-info">
+            <div class="gps-icon-wrapper" id="gpsIcon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="2" x2="12" y2="6"></line>
+                <line x1="12" y1="18" x2="12" y2="22"></line>
+                <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+                <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+                <line x1="2" y1="12" x2="6" y2="12"></line>
+                <line x1="18" y1="12" x2="22" y2="12"></line>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+            </div>
+            <div>
+              <strong style="display:block; font-size:14px;" id="gpsTitle">Obteniendo ubicación del móvil...</strong>
+              <span style="font-size:12px; color:var(--pdtf-muted);" id="gpsSubtitle">Permite el acceso al GPS para detectar la comisaría más cercana.</span>
+            </div>
+          </div>
+          <button class="gps-btn" id="recenterBtn" onclick="obtenerUbicacionGPS()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+            Mi Ubicación
+          </button>
+        </div>
+
+        <!-- Tarjeta de Comisaría Más Cercana -->
+        <div class="nearest-banner" id="nearestBanner">
+          <span class="nearest-badge">📍 Comisaría más cercana a tu posición</span>
+          <h2 class="nearest-title" id="nearestName">Comisaría Primera</h2>
+          <div class="nearest-dist" id="nearestDist">Distancia aproximada: 0 km</div>
+          <div class="nearest-actions">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="nearest-btn" id="nearestNavBtn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              Cómo llegar (Google Maps)
+            </a>
+            <a href="tel:911" class="nearest-btn" style="background:var(--pdtf-lime); color:var(--pdtf-blue);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.8 3.5 9.4 8 7.6 9.8c1.2 2.4 3.2 4.4 5.6 5.6l1.8-1.8 4.5 2.6c.5.3.7.9.5 1.4l-.9 2.3c-.2.5-.7.8-1.2.8C10.2 20.5 3.5 13.8 3.3 6.1c0-.5.3-1 .8-1.2L6.4 4c.1-.1.3-.1.4-.1Z"/></svg>
+              Llamar 911
+            </a>
+          </div>
+        </div>
+
+        <!-- Contenedor del Mapa -->
+        <div id="map" style="margin-top: 18px;"></div>
+      </main>
+
+      <footer class="pdtf-footer">Policía de Tierra del Fuego A.e I.A.S.</footer>
+    </div>
+  </section>
+
+  <!-- Script interactivo del Mapa y GPS -->
+  <script src="js/mapa.js"></script>
+</body>
+</html>
