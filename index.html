@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Panel de Seguridad y Emergencias de la Policía de Tierra del Fuego. Accesos rápidos e información de emergencia 24hs.">
+  <title>Seguridad y Emergencias - Policía de Tierra del Fuego</title>
+
+  <!-- CSS Propio e Independiente -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+  <!-- PANEL DE SEGURIDAD / EMERGENCIAS (Subpágina Modular) -->
+  <section class="pdtf-safety" aria-label="Panel de seguridad y emergencias">
+    <div class="pdtf-panel">
+
+      <!-- Encabezado del Panel -->
+      <header class="pdtf-header">
+        <div class="pdtf-header__brand">
+          <!-- Logo institucional (ubicado en carpeta de imágenes) -->
+          <img src="images/Escudo oro.png" alt="Escudo Policía TDF" class="pdtf-header__logo">
+          <div>
+            <p class="pdtf-kicker">Policía de Tierra del Fuego</p>
+            <h1 class="pdtf-title">Seguridad y emergencias</h1>
+          </div>
+        </div>
+        <p class="pdtf-intro">Accesos rápidos para pedir ayuda, comunicar una emergencia y encontrar información útil.
+        </p>
+      </header>
+
+      <!-- Botón Principal 911 (Llamada telefónica directa) -->
+      <a class="pdtf-911" href="tel:911" aria-label="Llamar al 911">
+        <div>
+          <span class="pdtf-911__number">911</span>
+          <span class="pdtf-911__title">Emergencias policiales</span>
+          <span class="pdtf-911__desc">Delitos, situaciones de riesgo y auxilio inmediato.</span>
+          <span class="pdtf-911__badge">DISPONIBLE 24 H</span>
+        </div>
+        <span class="pdtf-911__call" title="Llamar al 911">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M6.8 3.5 9.4 8 7.6 9.8c1.2 2.4 3.2 4.4 5.6 5.6l1.8-1.8 4.5 2.6c.5.3.7.9.5 1.4l-.9 2.3c-.2.5-.7.8-1.2.8C10.2 20.5 3.5 13.8 3.3 6.1c0-.5.3-1 .8-1.2L6.4 4c.1-.1.3-.1.4-.1Z"
+              fill="currentColor" />
+          </svg>
+        </span>
+      </a>
+
+      <!-- Grilla de Emergencias (107, 100, 103) -->
+      <div class="pdtf-emergency-grid">
+        <!-- Emergencias Médicas 107 -->
+        <a class="pdtf-emergency pdtf-emergency--107" href="tel:107" aria-label="Llamar al 107 Emergencias Médicas">
+          <div>
+            <svg class="pdtf-emergency__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3Z" fill="currentColor" />
+            </svg>
+            <span class="pdtf-emergency__number">107</span>
+            <span class="pdtf-emergency__label">Emergencias médicas</span>
+          </div>
+          <span class="pdtf-emergency__action">Llamar ahora &rarr;</span>
+        </a>
+
+        <!-- Bomberos 100 -->
+        <a class="pdtf-emergency pdtf-emergency--100" href="tel:100" aria-label="Llamar al 100 Bomberos">
+          <div>
+            <svg class="pdtf-emergency__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path
+                d="M12 2c3 4.3 5.7 6.7 5.7 11A5.7 5.7 0 0 1 12 18.7 5.7 5.7 0 0 1 6.3 13c0-2.7 1.4-4.8 3.7-7.7.2 2.3 1.2 3.9 2.6 5.1C13.5 7.3 13.7 5 12 2Z"
+                fill="currentColor" />
+            </svg>
+            <span class="pdtf-emergency__number">100</span>
+            <span class="pdtf-emergency__label">Bomberos</span>
+          </div>
+          <span class="pdtf-emergency__action">Llamar ahora &rarr;</span>
+        </a>
+
+        <!-- Defensa Civil 103 -->
+        <a class="pdtf-emergency pdtf-emergency--103" href="tel:103" aria-label="Llamar al 103 Defensa Civil">
+          <div>
+            <svg class="pdtf-emergency__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 21 6v5c0 5.3-3.4 9-9 11-5.6-2-9-5.7-9-11V6l9-4Zm-1 6v6h2V8h-2Zm0 8v2h2v-2h-2Z"
+                fill="currentColor" />
+            </svg>
+            <span class="pdtf-emergency__number">103</span>
+            <span class="pdtf-emergency__label">Defensa Civil</span>
+          </div>
+          <span class="pdtf-emergency__action">Llamar ahora &rarr;</span>
+        </a>
+      </div>
+
+      <!-- Sección de Accesos Rápidos (Redirección a Subpáginas HTML) -->
+      <section class="pdtf-tools">
+        <h2 class="pdtf-section-title">Accesos rápidos</h2>
+        <div class="pdtf-tool-grid">
+
+          <!-- Botón 1: Comisarías -->
+          <a class="pdtf-tool" href="comisarias/comisarias.html">
+            <svg class="pdtf-tool__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 21V9l8-5 8 5v12H4Zm4-2h3v-5H8v5Zm5 0h3v-5h-3v5ZM7 10h10L12 7l-5 3Z" fill="currentColor" />
+            </svg>
+            <span>
+              <span class="pdtf-tool__title">Comisarías</span>
+              <span class="pdtf-tool__desc">Dependencias y contactos</span>
+            </span>
+          </a>
+
+          <!-- Botón 2: Mapa de Dependencias -->
+          <a class="pdtf-tool" href="mapa.html">
+            <svg class="pdtf-tool__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m3 5 5-2 8 3 5-2v15l-5 2-8-3-5 2V5Zm5 0v11l8 3V8L8 5Z" fill="currentColor" />
+            </svg>
+            <span>
+              <span class="pdtf-tool__title">Mapa de dependencias</span>
+              <span class="pdtf-tool__desc">Encontrá la más cercana</span>
+            </span>
+          </a>
+
+          <!-- Botón 3: Denuncias -->
+          <a class="pdtf-tool" href="denuncias.html">
+            <svg class="pdtf-tool__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 3h10l4 4v14H5V3Zm9 2v3h3l-3-3ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Zm0-8h4v2H8V8Z"
+                fill="currentColor" />
+            </svg>
+            <span>
+              <span class="pdtf-tool__title">Denuncias</span>
+              <span class="pdtf-tool__desc">Información y orientación</span>
+            </span>
+          </a>
+
+          <!-- Botón 4: Consejos de Seguridad -->
+          <a class="pdtf-tool" href="consejos.html">
+            <svg class="pdtf-tool__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 21 6v5c0 5.3-3.4 9-9 11-5.6-2-9-5.7-9-11V6l9-4Zm-1 6v5h2V8h-2Zm0 7v2h2v-2h-2Z"
+                fill="currentColor" />
+            </svg>
+            <span>
+              <span class="pdtf-tool__title">Consejos de seguridad</span>
+              <span class="pdtf-tool__desc">Prevención y recomendaciones</span>
+            </span>
+          </a>
+
+          <!-- Botón 5: Objetos Perdidos -->
+          <a class="pdtf-tool" href="objetos-perdidos.html">
+            <svg class="pdtf-tool__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M10 2h4v2h-4V2ZM6 5h12v16H6V5Zm3 4v2h6V9H9Zm0 4v2h6v-2H9Z" fill="currentColor" />
+            </svg>
+            <span>
+              <span class="pdtf-tool__title">Objetos perdidos</span>
+              <span class="pdtf-tool__desc">Consultas y recuperación</span>
+            </span>
+          </a>
+
+          <!-- Botón 6: Información Útil -->
+          <a class="pdtf-tool" href="informacion-util.html">
+            <svg class="pdtf-tool__icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M11 10h2v8h-2v-8Zm0-4h2v2h-2V6Zm1-4a10 10 0 1 1 0 20 10 10 0 0 1 0-20Z" fill="currentColor" />
+            </svg>
+            <span>
+              <span class="pdtf-tool__title">Información útil</span>
+              <span class="pdtf-tool__desc">Trámites y recursos</span>
+            </span>
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Pie de página del panel -->
+      <footer class="pdtf-footer">
+        En una situación de riesgo inmediato, priorizá siempre la llamada al 911.
+      </footer>
+    </div>
+  </section>
+
+  <!-- Script JS modular opcional -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

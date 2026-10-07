@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seguridad y emergencias - Policía de Tierra del Fuego</title>
+</head>
+<body>
+<!-- PANEL DE SEGURIDAD / EMERGENCIAS - Mobile first -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+.pdtf-safety{--blue:#17394b;--green:#047E1A;--red:#F20D0D;--yellow:#F2C90D;--lime:#d8ef00;--bg:#f4f6f7;--card:#fff;--muted:#68767e;--line:rgba(23,57,75,.12);width:100%;max-width:1180px;margin:0 auto;padding:16px;font-family:'Inter',sans-serif;color:var(--blue);box-sizing:border-box}
+.pdtf-safety *,.pdtf-safety *:before,.pdtf-safety *:after{box-sizing:border-box}
+.pdtf-panel{overflow:hidden;background:var(--bg);border:1px solid var(--line);border-radius:24px;box-shadow:0 12px 34px rgba(0,0,0,.08)}
+.pdtf-header{padding:22px 18px 20px;background:#fff;border-bottom:1px solid var(--line)}
+.pdtf-kicker{margin:0 0 5px;font-size:11px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:#718088}
+.pdtf-title{margin:0;font-size:clamp(23px,7vw,34px);line-height:1.04;letter-spacing:-.035em;font-weight:900}
+.pdtf-intro{margin:8px 0 0;max-width:650px;font-size:13px;line-height:1.45;color:var(--muted)}
+.pdtf-911{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:24px 18px;background:var(--blue);color:#fff;text-decoration:none}
+.pdtf-911__number{display:block;font-size:clamp(76px,23vw,128px);line-height:.8;letter-spacing:-.075em;font-weight:900}
+.pdtf-911__title{display:block;margin-top:15px;font-size:17px;line-height:1.1;font-weight:800}
+.pdtf-911__desc{display:block;margin-top:7px;max-width:580px;font-size:12px;line-height:1.45;color:rgba(255,255,255,.78)}
+.pdtf-911__badge{display:inline-flex;margin-top:12px;padding:6px 9px;border-radius:999px;background:var(--lime);color:var(--blue);font-size:10px;font-weight:900;letter-spacing:.07em}
+.pdtf-911__call{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:#fff;color:var(--blue)}
+.pdtf-911__call svg{width:25px;height:25px}
+.pdtf-emergency-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border-bottom:1px solid var(--line)}
+.pdtf-emergency{min-width:0;min-height:154px;padding:16px 10px 14px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:#fff}
+.pdtf-emergency--107{background:var(--green)}.pdtf-emergency--100{background:var(--red)}.pdtf-emergency--103{background:var(--yellow);color:#252525}
+.pdtf-emergency__icon{width:28px;height:28px;margin-bottom:12px}.pdtf-emergency__number{display:block;font-size:clamp(34px,11vw,54px);line-height:.85;letter-spacing:-.065em;font-weight:900}
+.pdtf-emergency__label{display:block;margin-top:9px;font-size:10px;line-height:1.15;font-weight:800;text-transform:uppercase}.pdtf-emergency__action{display:block;margin-top:16px;font-size:9px;font-weight:700;opacity:.86}
+.pdtf-tools{padding:18px 12px 12px}.pdtf-section-title{margin:0 6px 12px;font-size:14px;font-weight:900;text-transform:uppercase;letter-spacing:.04em}
+.pdtf-tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.pdtf-tool{min-height:132px;padding:16px 13px;display:flex;flex-direction:column;justify-content:space-between;gap:16px;background:#fff;color:var(--blue);border:1px solid var(--line);border-radius:16px;text-decoration:none;box-shadow:0 4px 14px rgba(23,57,75,.04);transition:.18s}
+.pdtf-tool:hover{border-color:rgba(23,57,75,.28);box-shadow:0 9px 22px rgba(23,57,75,.08);transform:translateY(-2px)}
+.pdtf-tool__icon{width:35px;height:35px}.pdtf-tool__title{display:block;font-size:13px;line-height:1.18;font-weight:800}.pdtf-tool__desc{display:block;margin-top:5px;color:var(--muted);font-size:10px;line-height:1.3}
+.pdtf-footer{margin-top:6px;padding:15px 18px 18px;color:#77858c;font-size:10px;line-height:1.4;text-align:center}
+.pdtf-safety a:focus-visible{outline:3px solid #6ba9c8;outline-offset:3px}
+@media(min-width:700px){.pdtf-safety{padding:22px}.pdtf-panel{border-radius:28px}.pdtf-header{padding:28px 28px 24px}.pdtf-intro{font-size:14px}.pdtf-911{padding:34px 30px;gap:30px}.pdtf-911__call{width:68px;height:68px}.pdtf-911__call svg{width:31px;height:31px}.pdtf-911__title{font-size:20px}.pdtf-911__desc{font-size:13px}.pdtf-emergency{min-height:190px;padding:22px}.pdtf-emergency__icon{width:34px;height:34px}.pdtf-emergency__label{font-size:12px}.pdtf-emergency__action{font-size:10px}.pdtf-tools{padding:24px 20px 18px}.pdtf-tool-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.pdtf-tool{min-height:150px;padding:18px}.pdtf-tool__title{font-size:14px}.pdtf-tool__desc{font-size:11px}}
+@media(min-width:1024px){.pdtf-safety{padding:28px}.pdtf-header{padding:32px 34px 28px}.pdtf-911{padding:40px 36px}.pdtf-911__number{font-size:132px}.pdtf-911__title{font-size:23px}.pdtf-911__desc{font-size:14px}.pdtf-emergency{min-height:210px;padding:26px}.pdtf-tools{padding:28px 24px 22px}.pdtf-tool-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.pdtf-tool{min-height:164px;padding:20px}.pdtf-tool__icon{width:40px;height:40px}.pdtf-tool__title{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.pdtf-safety *{transition:none!important}}
+</style>
+
+<section class="pdtf-safety" aria-label="Panel de seguridad y emergencias">
+<div class="pdtf-panel">
+<header class="pdtf-header">
+<p class="pdtf-kicker">Policía de Tierra del Fuego</p>
+<h2 class="pdtf-title">Seguridad y emergencias</h2>
+<p class="pdtf-intro">Accesos rápidos para pedir ayuda, comunicar una emergencia y encontrar información útil.</p>
+</header>
+
+<a class="pdtf-911" href="tel:911" aria-label="Llamar al 911">
+<div><span class="pdtf-911__number">911</span><span class="pdtf-911__title">Emergencias policiales</span><span class="pdtf-911__desc">Delitos, situaciones de riesgo y auxilio inmediato.</span><span class="pdtf-911__badge">DISPONIBLE 24 H</span></div>
+<span class="pdtf-911__call"><svg viewBox="0 0 24 24"><path d="M6.8 3.5 9.4 8 7.6 9.8c1.2 2.4 3.2 4.4 5.6 5.6l1.8-1.8 4.5 2.6c.5.3.7.9.5 1.4l-.9 2.3c-.2.5-.7.8-1.2.8C10.2 20.5 3.5 13.8 3.3 6.1c0-.5.3-1 .8-1.2L6.4 4c.1-.1.3-.1.4-.1Z" fill="currentColor"/></svg></span>
+</a>
+
+<div class="pdtf-emergency-grid">
+<a class="pdtf-emergency pdtf-emergency--107" href="tel:107"><div><svg class="pdtf-emergency__icon" viewBox="0 0 24 24"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6V3Z" fill="currentColor"/></svg><span class="pdtf-emergency__number">107</span><span class="pdtf-emergency__label">Emergencias médicas</span></div><span class="pdtf-emergency__action">Llamar ahora</span></a>
+<a class="pdtf-emergency pdtf-emergency--100" href="tel:100"><div><svg class="pdtf-emergency__icon" viewBox="0 0 24 24"><path d="M12 2c3 4.3 5.7 6.7 5.7 11A5.7 5.7 0 0 1 12 18.7 5.7 5.7 0 0 1 6.3 13c0-2.7 1.4-4.8 3.7-7.7.2 2.3 1.2 3.9 2.6 5.1C13.5 7.3 13.7 5 12 2Z" fill="currentColor"/></svg><span class="pdtf-emergency__number">100</span><span class="pdtf-emergency__label">Bomberos</span></div><span class="pdtf-emergency__action">Llamar ahora</span></a>
+<a class="pdtf-emergency pdtf-emergency--103" href="tel:103"><div><svg class="pdtf-emergency__icon" viewBox="0 0 24 24"><path d="M12 2 21 6v5c0 5.3-3.4 9-9 11-5.6-2-9-5.7-9-11V6l9-4Zm-1 6v6h2V8h-2Zm0 8v2h2v-2h-2Z" fill="currentColor"/></svg><span class="pdtf-emergency__number">103</span><span class="pdtf-emergency__label">Defensa Civil</span></div><span class="pdtf-emergency__action">Llamar ahora</span></a>
+</div>
+
+<section class="pdtf-tools">
+<h3 class="pdtf-section-title">Accesos rápidos</h3>
+<div class="pdtf-tool-grid">
+<a class="pdtf-tool" href="#"><svg class="pdtf-tool__icon" viewBox="0 0 24 24"><path d="M4 21V9l8-5 8 5v12H4Zm4-2h3v-5H8v5Zm5 0h3v-5h-3v5ZM7 10h10L12 7l-5 3Z" fill="currentColor"/></svg><span><span class="pdtf-tool__title">Comisarías</span><span class="pdtf-tool__desc">Dependencias y contactos</span></span></a>
+<a class="pdtf-tool" href="#"><svg class="pdtf-tool__icon" viewBox="0 0 24 24"><path d="m3 5 5-2 8 3 5-2v15l-5 2-8-3-5 2V5Zm5 0v11l8 3V8L8 5Z" fill="currentColor"/></svg><span><span class="pdtf-tool__title">Mapa de dependencias</span><span class="pdtf-tool__desc">Encontrá la más cercana</span></span></a>
+<a class="pdtf-tool" href="#"><svg class="pdtf-tool__icon" viewBox="0 0 24 24"><path d="M5 3h10l4 4v14H5V3Zm9 2v3h3l-3-3ZM8 12h8v2H8v-2Zm0 4h8v2H8v-2Zm0-8h4v2H8V8Z" fill="currentColor"/></svg><span><span class="pdtf-tool__title">Denuncias</span><span class="pdtf-tool__desc">Información y orientación</span></span></a>
+<a class="pdtf-tool" href="#"><svg class="pdtf-tool__icon" viewBox="0 0 24 24"><path d="M12 2 21 6v5c0 5.3-3.4 9-9 11-5.6-2-9-5.7-9-11V6l9-4Zm-1 6v5h2V8h-2Zm0 7v2h2v-2h-2Z" fill="currentColor"/></svg><span><span class="pdtf-tool__title">Consejos de seguridad</span><span class="pdtf-tool__desc">Prevención y recomendaciones</span></span></a>
+<a class="pdtf-tool" href="#"><svg class="pdtf-tool__icon" viewBox="0 0 24 24"><path d="M10 2h4v2h-4V2ZM6 5h12v16H6V5Zm3 4v2h6V9H9Zm0 4v2h6v-2H9Z" fill="currentColor"/></svg><span><span class="pdtf-tool__title">Objetos perdidos</span><span class="pdtf-tool__desc">Consultas y recuperación</span></span></a>
+<a class="pdtf-tool" href="#"><svg class="pdtf-tool__icon" viewBox="0 0 24 24"><path d="M11 10h2v8h-2v-8Zm0-4h2v2h-2V6Zm1-4a10 10 0 1 1 0 20 10 10 0 0 1 0-20Z" fill="currentColor"/></svg><span><span class="pdtf-tool__title">Información útil</span><span class="pdtf-tool__desc">Trámites y recursos</span></span></a>
+</div>
+</section>
+
+<div class="pdtf-footer">En una situación de riesgo inmediato, priorizá siempre la llamada al 911.</div>
+</div>
+</section>
+
+</body>
+</html>

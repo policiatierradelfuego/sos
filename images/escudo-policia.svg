@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100" height="120">
+  <path d="M50 5 L90 20 V60 C90 90 50 115 50 115 C50 115 10 90 10 60 V20 Z" fill="#17394b" stroke="#d8ef00" stroke-width="4"/>
+  <path d="M50 15 L80 27 V58 C80 82 50 102 50 102 C50 102 20 82 20 58 V27 Z" fill="#0f2734"/>
+  <polygon points="50,30 56,44 71,44 59,53 64,68 50,58 36,68 41,53 29,44 44,44" fill="#d8ef00"/>
+  <text x="50" y="88" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#ffffff" text-anchor="middle">POLICIA TDF</text>
+</svg>
