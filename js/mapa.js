@@ -25,6 +25,13 @@ let map = null;
 let userMarker = null;
 let userCircle = null;
 
+// Modo de búsqueda: 'general' (sin Género y Familia) o 'genero' (solo Género y Familia)
+let modoBusqueda = 'general';
+
+function esGeneroYFamilia(c) {
+    return c.nombre.includes('Género y Familia');
+}
+
 // Fórmula de Haversine para calcular distancia en kilómetros entre 2 puntos GPS
 function calcularDistanciaKm(lat1, lon1, lat2, lon2) {
     const R = 6371; // Radio de la Tierra en km
@@ -60,9 +67,19 @@ function initMap() {
         shadowSize: [41, 41]
     });
 
+    // Icono violeta para Comisarías de Género y Familia
+    const generoIcon = L.icon({
+        iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-violet.png',
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+    });
+
     // Agregar marcadores de todas las comisarías en el mapa
     COMISARIAS_DATA.forEach(c => {
-        const marker = L.marker([c.lat, c.lng], { icon: comisariaIcon }).addTo(map);
+        const marker = L.marker([c.lat, c.lng], { icon: esGeneroYFamilia(c) ? generoIcon : comisariaIcon }).addTo(map);
         const mapUrl = `https://www.google.com/maps/dir/?api=1&destination=${c.lat},${c.lng}`;
         marker.bindPopup(`
             <div class="popup-content">
@@ -78,7 +95,13 @@ function initMap() {
 }
 
 // Función para solicitar ubicación GPS
-function obtenerUbicacionGPS() {
+// modo: 'general' (comisarías que no son Género y Familia) o 'genero' (solo Género y Familia)
+function obtenerUbicacionGPS(modo) {
+    if (modo === 'general' || modo === 'genero') modoBusqueda = modo;
+    const buscaGenero = modoBusqueda === 'genero';
+
+    document.getElementById('recenterBtn').classList.toggle('gps-btn--active', !buscaGenero);
+    document.getElementById('generoBtn').classList.toggle('gps-btn--active', buscaGenero);
     const gpsTitle = document.getElementById('gpsTitle');
     const gpsSubtitle = document.getElementById('gpsSubtitle');
     const gpsIcon = document.getElementById('gpsIcon');
@@ -138,7 +161,7 @@ function obtenerUbicacionGPS() {
             let comisariaMasCercana = null;
             let menorDistancia = Infinity;
 
-            COMISARIAS_DATA.forEach(c => {
+            COMISARIAS_DATA.filter(c => esGeneroYFamilia(c) === buscaGenero).forEach(c => {
                 const dist = calcularDistanciaKm(userLat, userLng, c.lat, c.lng);
                 if (dist < menorDistancia) {
                     menorDistancia = dist;
@@ -149,6 +172,9 @@ function obtenerUbicacionGPS() {
             if (comisariaMasCercana) {
                 // Mostrar banner con la comisaría más cercana
                 const nearestBanner = document.getElementById('nearestBanner');
+                document.getElementById('nearestBadge').textContent = buscaGenero
+                    ? '💜 Comisaría de Género y Familia más cercana'
+                    : '📍 Comisaría más cercana a tu posición';
                 const nearestName = document.getElementById('nearestName');
                 const nearestDist = document.getElementById('nearestDist');
                 const nearestNavBtn = document.getElementById('nearestNavBtn');
