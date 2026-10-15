@@ -5,21 +5,21 @@
 
 // 1. Coordenadas parseadas directamente desde comisarias_coordenadas.csv
 const COMISARIAS_DATA = [
-    { ciudad: "Río Grande", nombre: "Comisaría Primera", lat: -53.7861167, lng: -67.7030976 },
-    { ciudad: "Río Grande", nombre: "Comisaría Segunda", lat: -53.7920361, lng: -67.7208994 },
-    { ciudad: "Río Grande", nombre: "Comisaría Tercera", lat: -53.7695004, lng: -67.7273625 },
-    { ciudad: "Río Grande", nombre: "Comisaría Cuarta", lat: -53.8026975, lng: -67.6650583 },
-    { ciudad: "Río Grande", nombre: "Comisaría Quinta", lat: -53.8020978, lng: -67.7538777 },
-    { ciudad: "Río Grande", nombre: "Comisaría de Género y Familia", lat: -53.7950986, lng: -67.7252179 },
+    { ciudad: "Río Grande", nombre: "Comisaría Primera", lat: -53.7862762, lng: -67.7031483 },
+    { ciudad: "Río Grande", nombre: "Comisaría Segunda", lat: -53.7919204, lng: -67.7208629 },
+    { ciudad: "Río Grande", nombre: "Comisaría Tercera", lat: -53.7693592, lng: -67.7248257 },
+    { ciudad: "Río Grande", nombre: "Comisaría Cuarta", lat: -53.8025565, lng: -67.6649508 },
+    { ciudad: "Río Grande", nombre: "Comisaría Quinta", lat: -53.8015923, lng: -67.7524103 },
+    { ciudad: "Río Grande", nombre: "Comisaría de Género y Familia Río Grande", lat: -53.7948086, lng: -67.7220472 },
     { ciudad: "Tolhuin", nombre: "Comisaría Tolhuin", lat: -54.5117301, lng: -67.1961215 },
-    { ciudad: "Tolhuin", nombre: "Comisaría de Género y Familia", lat: -54.5060194, lng: -67.2011994 },
-    { ciudad: "Ushuaia", nombre: "Comisaría Primera", lat: -54.8035661, lng: -68.3146294 },
+    { ciudad: "Tolhuin", nombre: "Comisaría de Género y Familia Tolhuin", lat: -54.5045317, lng: -67.1987452 },
+    { ciudad: "Ushuaia", nombre: "Comisaría Primera", lat: -54.8036619, lng: -68.3121493 },
     { ciudad: "Ushuaia", nombre: "Comisaría Segunda", lat: -54.8174216, lng: -68.3353046 },
     { ciudad: "Ushuaia", nombre: "Comisaría Tercera", lat: -54.7924542, lng: -68.2538421 },
-    { ciudad: "Ushuaia", nombre: "Comisaría Cuarta", lat: -54.830547, lng: -68.3567312 },
-    { ciudad: "Ushuaia", nombre: "Comisaría Quinta", lat: -54.78695, lng: -68.27268 },
+    { ciudad: "Ushuaia", nombre: "Comisaría Cuarta", lat: -54.8306713, lng: -68.3538197 },
+    { ciudad: "Ushuaia", nombre: "Comisaría Quinta", lat: -54.7870335, lng: -68.2725170 },
     { ciudad: "Ushuaia", nombre: "Comisaría de Género y Familia N.º 2", lat: -54.7912559, lng: -68.2637382 },
-    { ciudad: "Ushuaia", nombre: "Comisaría de Género y Familia N.º 1", lat: -54.8056929, lng: -68.3053641 }
+    { ciudad: "Ushuaia", nombre: "Comisaría de Género y Familia N.º 1", lat: -54.8055850, lng: -68.3049830 }
 ];
 
 let map = null;
