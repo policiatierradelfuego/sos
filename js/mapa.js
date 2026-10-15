@@ -15,6 +15,7 @@ const COMISARIAS_DATA = [
     { ciudad: "Tolhuin", nombre: "Comisaría de Género y Familia", lat: -54.5060194, lng: -67.2011994 },
     { ciudad: "Ushuaia", nombre: "Comisaría Primera", lat: -54.8035661, lng: -68.3146294 },
     { ciudad: "Ushuaia", nombre: "Comisaría Segunda", lat: -54.8174216, lng: -68.3353046 },
+    { ciudad: "Ushuaia", nombre: "Comisaría Tercera", lat: -54.7924542, lng: -68.2538421 },
     { ciudad: "Ushuaia", nombre: "Comisaría Cuarta", lat: -54.830547, lng: -68.3567312 },
     { ciudad: "Ushuaia", nombre: "Comisaría Quinta", lat: -54.78695, lng: -68.27268 },
     { ciudad: "Ushuaia", nombre: "Comisaría de Género y Familia N.º 2", lat: -54.7912559, lng: -68.2637382 },
@@ -37,9 +38,9 @@ function calcularDistanciaKm(lat1, lon1, lat2, lon2) {
     const R = 6371; // Radio de la Tierra en km
     const dLat = (lat2 - lat1) * Math.PI / 180;
     const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = 
+    const a =
         Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
+        Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
         Math.sin(dLon / 2) * Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
@@ -180,16 +181,16 @@ function obtenerUbicacionGPS(modo) {
                 const nearestNavBtn = document.getElementById('nearestNavBtn');
 
                 nearestName.textContent = `${comisariaMasCercana.nombre} (${comisariaMasCercana.ciudad})`;
-                
-                let distTexto = menorDistancia < 1 
+
+                let distTexto = menorDistancia < 1
                     ? `Aprox. ${Math.round(menorDistancia * 1000)} metros de tu posición`
                     : `Aprox. ${menorDistancia.toFixed(2)} km de tu posición`;
-                
+
                 nearestDist.textContent = distTexto;
-                
+
                 const mapsDirUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${comisariaMasCercana.lat},${comisariaMasCercana.lng}`;
                 nearestNavBtn.href = mapsDirUrl;
-                
+
                 nearestBanner.classList.add('active');
 
                 // Reorientar el mapa mostrando tanto la posición como la comisaría cercana
