@@ -106,8 +106,12 @@ document.addEventListener('DOMContentLoaded', async () => {
                 // Extraer link del mapa si es un iframe o generar búsqueda por defecto
                 let mapLink = "#";
                 const mapContent = rawMapa || extras.map;
+                const tieneCoords = Number.isFinite(comisaria.lat) && Number.isFinite(comisaria.lng);
                 
-                if (mapContent && mapContent.includes('<iframe')) {
+                if (tieneCoords) {
+                    // Ubicación exacta tomada de las coordenadas (dependencias.json)
+                    mapLink = `https://www.google.com/maps/search/?api=1&query=${comisaria.lat},${comisaria.lng}`;
+                } else if (mapContent && mapContent.includes('<iframe')) {
                     const match = mapContent.match(/src="([^"]+)"/);
                     mapLink = match ? match[1] : "#";
                 } else if (mapContent && mapContent !== "#") {
