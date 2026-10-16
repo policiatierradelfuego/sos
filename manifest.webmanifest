@@ -1,0 +1,18 @@
+{
+  "name": "Seguridad y Emergencias - Policía de Tierra del Fuego",
+  "short_name": "Policía TDF",
+  "description": "Panel de Seguridad y Emergencias de la Policía de Tierra del Fuego.",
+  "lang": "es",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#17394b",
+  "theme_color": "#17394b",
+  "icons": [
+    { "src": "images/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "images/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
