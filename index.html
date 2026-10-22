@@ -11,6 +11,21 @@
   <!-- CSS Propio e Independiente -->
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/pwa.js" defer></script>
+
+  <!-- OneSignal Web Push SDK -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function(OneSignal) {
+      await OneSignal.init({
+        appId: "32b9d472-eacb-4035-aed8-5e584d42ac39",
+        safari_web_id: "web.onesignal.auto.62a04992-e924-4258-8064-560c4d6dc347",
+        notifyButton: {
+          enable: true,
+        },
+      });
+    });
+  </script>
 </head>
 
 <body>
