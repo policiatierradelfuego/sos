@@ -1,5 +1,5 @@
 /* Service Worker - Policía TDF. Network-first con respaldo en caché (offline). */
-const CACHE = 'pdtf-v1';
+const CACHE = 'pdtf-v2';
 const PRECACHE = ['./', 'index.html', 'css/styles.css', 'js/main.js', 'js/pwa.js',
   'images/Escudo oro.png', 'images/icon-192.png', 'manifest.webmanifest'];
 
