@@ -24,6 +24,15 @@
           enable: true,
         },
       });
+
+      // Sugerir suscripción automáticamente tras una breve pausa
+      setTimeout(async function() {
+        try {
+          await OneSignal.Slidedown.promptPush();
+        } catch (err) {
+          console.debug("OneSignal promptPush error:", err);
+        }
+      }, 2500);
     });
   </script>
 </head>
