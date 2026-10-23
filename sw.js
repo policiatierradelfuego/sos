@@ -2,7 +2,7 @@
 // importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 
 /* Service Worker - Policía TDF. Network-first con respaldo en caché (offline). */
-const CACHE = 'pdtf-v3';
+const CACHE = 'pdtf-v4';
 const PRECACHE = ['./', 'index.html', 'css/styles.css', 'js/main.js', 'js/pwa.js',
   'images/Escudo oro.png', 'images/icon-192.png', 'manifest.webmanifest'];
 
@@ -25,7 +25,7 @@ self.addEventListener('fetch', (e) => {
   const url = new URL(req.url);
   if (url.origin !== location.origin) return; // mapas, APIs y sitios externos: sin tocar
   e.respondWith(
-    fetch(req)
+    fetch(req, { cache: 'no-cache' })
       .then((res) => {
         if (res && res.ok) {
           const copy = res.clone();

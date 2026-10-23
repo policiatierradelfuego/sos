@@ -23,10 +23,32 @@
   ai.href = base + 'images/icon-192.png';
   document.head.appendChild(ai);
 
-  // Service worker
+  // Service worker + aviso de nueva versión
   if ('serviceWorker' in navigator) {
+    var hadController = !!navigator.serviceWorker.controller;
+    var updateShown = false;
+    function showUpdate() {
+      if (updateShown) return;
+      updateShown = true;
+      var bar = document.createElement('div');
+      bar.setAttribute('role', 'alert');
+      bar.style.cssText = 'position:fixed;left:12px;right:12px;top:12px;z-index:10000;max-width:460px;margin:0 auto;' +
+        'display:flex;align-items:center;gap:12px;padding:12px 14px;background:#17394b;color:#fff;border-radius:14px;' +
+        'box-shadow:0 10px 30px rgba(0,0,0,.35);font-size:.88rem;line-height:1.25';
+      bar.innerHTML = '<span style="flex:1"><strong>Hay una nueva versión disponible</strong></span>' +
+        '<button type="button" style="border:0;border-radius:10px;padding:9px 14px;background:#f2c90d;color:#0f2734;font-weight:700;cursor:pointer">Actualizar</button>';
+      bar.querySelector('button').addEventListener('click', function () { location.reload(); });
+      document.body.appendChild(bar);
+    }
+    // El nuevo service worker toma el control: la página abierta quedó desactualizada
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (hadController) showUpdate();
+    });
     window.addEventListener('load', function () {
-      navigator.serviceWorker.register(base + 'sw.js', { scope: base }).catch(function () {});
+      navigator.serviceWorker.register(base + 'sw.js', { scope: base }).then(function (reg) {
+        // Buscar actualizaciones cada vez que se abre la app
+        reg.update().catch(function () {});
+      }).catch(function () {});
     });
   }
 
