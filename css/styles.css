@@ -427,23 +427,45 @@ body {
 
 .pdtf-zone-card__name {
   display: block;
-  font-size: 18px;
+  font-size: clamp(28px, 8vw, 36px);
   font-weight: 900;
-  letter-spacing: -.025em
+  line-height: 1;
+  letter-spacing: -.04em
 }
 
 .pdtf-zone-card__city {
   display: block;
-  margin-top: 5px;
+  margin-top: 8px;
   color: var(--pdtf-muted);
-  font-size: 12px;
-  font-weight: 600
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase
 }
 
 .pdtf-zone-card__action {
+  align-self: flex-start;
+  padding-top: 12px;
+  border-top: 1px solid var(--pdtf-line);
+  width: 100%;
   font-size: 11px;
   font-weight: 800;
-  text-transform: uppercase
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.pdtf-zone-card__arrow {
+  font-size: 30px;
+  line-height: 1;
+  font-weight: 700;
+  transition: transform .2s ease
+}
+
+.pdtf-zone-card:hover .pdtf-zone-card__arrow {
+  transform: translateX(6px)
 }
 
 .pdtf-navigation {
@@ -1229,4 +1251,75 @@ body {
 .gps-btn:not(.gps-btn--active):hover {
   background: var(--pdtf-blue);
   color: #fff
+}
+/* ===== Material Symbols (Google Fonts) ===== */
+.material-symbols-rounded {
+  font-family: 'Material Symbols Rounded';
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  direction: ltr;
+  flex-shrink: 0;
+  user-select: none;
+  -webkit-font-smoothing: antialiased
+}
+
+.pdtf-tool__icon,
+.pdtf-zone-card__icon {
+  font-size: 40px
+}
+
+.pdtf-911__call .material-symbols-rounded {
+  font-size: 32px
+}
+
+.portal-card__icon {
+  font-size: 52px
+}
+
+.gps-icon-wrapper .material-symbols-rounded {
+  font-size: 26px
+}
+
+.gps-btn .material-symbols-rounded,
+.nearest-btn .material-symbols-rounded {
+  font-size: 18px
+}
+
+.action-btn .material-symbols-rounded {
+  font-size: 20px
+}
+
+/* ===== Mapa: acciones principales (protagonismo moderado, sin competir con 911 ni "Volver") ===== */
+.gps-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  margin-top: 2px
+}
+
+.gps-actions .gps-btn {
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 12.5px;
+  font-weight: 700;
+  line-height: 1.15;
+  text-align: left
+}
+
+.gps-actions .gps-btn .material-symbols-rounded {
+  font-size: 22px
+}
+
+.gps-actions .gps-btn:not(.gps-btn--active) {
+  box-shadow: inset 0 0 0 1.5px rgba(23, 57, 75, .35)
 }
