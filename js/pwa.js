@@ -76,10 +76,10 @@
     banner.setAttribute('aria-label', 'Instalar aplicación');
     banner.innerHTML =
       '<img src="' + base + 'images/icon-192.png" alt="">' +
-      '<div class="pdtf-install__text"><strong>Instalá la app</strong>' +
+      '<div class="pdtf-install__text"><strong>Tené 911 emergencias a un toque</strong>' +
       (isIOS && !deferred
         ? 'Tocá <b>Compartir</b> y luego <b>Agregar a pantalla de inicio</b>.'
-        : 'Accedé más rápido a emergencias desde tu móvil.') + '</div>' +
+        : 'Instalá la app y accedé más rápido a los números de emergencia desde tu celular.') + '</div>' +
       (deferred ? '<button type="button" class="pdtf-install__btn">Instalar</button>' : '') +
       '<button type="button" class="pdtf-install__close" aria-label="Cerrar">&times;</button>';
     document.body.appendChild(banner);
