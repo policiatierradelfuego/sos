@@ -12,42 +12,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Comisarías de la Policía de Tierra del Fuego, organizadas por zona.">
-  <title>Comisarías - Policía de Tierra del Fuego</title>
+  <title data-i18n="page_title_stations">Comisarías - Policía de Tierra del Fuego</title>
+  <script src="../js/i18n.js"></script>
   <link rel="stylesheet" href="../css/styles.css">
 <script src="../js/pwa.js" defer></script>  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap">
 </head>
 <body>
   <section class="pdtf-safety" aria-labelledby="page-title">
     <div class="pdtf-panel">
+      <div class="pdtf-topbar">
+        <div class="pdtf-lang-selector" role="group" aria-label="Seleccionar idioma / Select language">
+          <button type="button" class="pdtf-lang-btn is-active" data-lang="es" aria-label="Español">ES</button>
+          <button type="button" class="pdtf-lang-btn" data-lang="en" aria-label="English">EN</button>
+          <button type="button" class="pdtf-lang-btn" data-lang="pt" aria-label="Português">PT</button>
+        </div>
+      </div>
       <header class="pdtf-header">
-        <a href="../index.html" class="pdtf-back" aria-label="Volver al panel principal">← Volver al panel principal</a>
+        <a href="../index.html" class="pdtf-back" data-i18n="back_home">← Volver al panel principal</a>
         <div class="pdtf-header__brand">
           <img src="../images/Escudo oro.png" alt="Escudo Policía de Tierra del Fuego" class="pdtf-header__logo">
           <div>
-            <p class="pdtf-kicker">Policía de Tierra del Fuego</p>
-            <h1 class="pdtf-title" id="page-title">Comisarías</h1>
+            <p class="pdtf-kicker" data-i18n="kicker">Policía de Tierra del Fuego</p>
+            <h1 class="pdtf-title" id="page-title" data-i18n="stations_title">Comisarías</h1>
           </div>
         </div>
-        <p class="pdtf-intro">Elegí una zona para consultar sus dependencias y medios de contacto.</p>
+        <p class="pdtf-intro" data-i18n="stations_intro">Elegí una zona para consultar sus dependencias y medios de contacto.</p>
       </header>
 
       <main class="pdtf-page-content">
-        <h2 class="pdtf-section-title">Seleccioná una zona</h2>
+        <h2 class="pdtf-section-title" data-i18n="select_zone">Seleccioná una zona</h2>
         <div class="pdtf-zone-grid">
           <a class="pdtf-zone-card" href="comisarias_norte.html">
             <span class="material-symbols-rounded pdtf-zone-card__icon" aria-hidden="true">location_on</span>
-            <span><span class="pdtf-zone-card__name">Río Grande</span><span class="pdtf-zone-card__city">Zona Norte</span></span>
-            <span class="pdtf-zone-card__action">Ver comisarías <span class="pdtf-zone-card__arrow" aria-hidden="true">→</span></span>
+            <span><span class="pdtf-zone-card__name">Río Grande</span><span class="pdtf-zone-card__city" data-i18n="zone_north">Zona Norte</span></span>
+            <span class="pdtf-zone-card__action"><span data-i18n="view_stations">Ver comisarías</span> <span class="pdtf-zone-card__arrow" aria-hidden="true">→</span></span>
           </a>
           <a class="pdtf-zone-card" href="comisarias_centro.html">
             <span class="material-symbols-rounded pdtf-zone-card__icon" aria-hidden="true">location_on</span>
-            <span><span class="pdtf-zone-card__name">Tolhuin</span><span class="pdtf-zone-card__city">Zona Centro</span></span>
-            <span class="pdtf-zone-card__action">Ver comisarías <span class="pdtf-zone-card__arrow" aria-hidden="true">→</span></span>
+            <span><span class="pdtf-zone-card__name">Tolhuin</span><span class="pdtf-zone-card__city" data-i18n="zone_center">Zona Centro</span></span>
+            <span class="pdtf-zone-card__action"><span data-i18n="view_stations">Ver comisarías</span> <span class="pdtf-zone-card__arrow" aria-hidden="true">→</span></span>
           </a>
           <a class="pdtf-zone-card" href="comisarias_sur.html">
             <span class="material-symbols-rounded pdtf-zone-card__icon" aria-hidden="true">location_on</span>
-            <span><span class="pdtf-zone-card__name">Ushuaia</span><span class="pdtf-zone-card__city">Zona Sur</span></span>
-            <span class="pdtf-zone-card__action">Ver comisarías <span class="pdtf-zone-card__arrow" aria-hidden="true">→</span></span>
+            <span><span class="pdtf-zone-card__name">Ushuaia</span><span class="pdtf-zone-card__city" data-i18n="zone_south">Zona Sur</span></span>
+            <span class="pdtf-zone-card__action"><span data-i18n="view_stations">Ver comisarías</span> <span class="pdtf-zone-card__arrow" aria-hidden="true">→</span></span>
           </a>
         </div>
       </main>

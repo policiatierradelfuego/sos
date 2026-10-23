@@ -44,7 +44,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('No se pudo leer el archivo local de dependencias:', error);
         const grid = document.getElementById('comisariasGrid');
         if (grid) {
-            grid.innerHTML = '<p class="pdtf-empty">No se pudieron cargar las dependencias. Verificá el archivo <code>comisarias/data/dependencias.json</code>.</p>';
+            grid.innerHTML = '<p class="pdtf-empty" data-i18n="stations_load_error">No se pudieron cargar las dependencias. Intentá nuevamente más tarde.</p>';
+            if (window.PDTF_i18n) window.PDTF_i18n.setLanguage(window.PDTF_i18n.current);
         }
         if (spinner) spinner.classList.add('hidden');
         return;
@@ -77,7 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         grid.innerHTML = ''; // Limpiar
         
         if (comisariasZona.length === 0) {
-            grid.innerHTML = '<p class="pdtf-empty">No se encontraron comisarías para esta zona.</p>';
+            grid.innerHTML = '<p class="pdtf-empty" data-i18n="stations_empty">No se encontraron comisarías para esta zona.</p>';
         } else {
             // DEBUG: Ver qué columnas trae la primera comisaría (quitar después)
             console.log("Datos de la primera comisaría detectada:", comisariasZona[0]);
@@ -142,7 +143,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <div class="comisaria-actions">
                                 <a href="${mapLink}" target="_blank" rel="noopener noreferrer" class="action-btn">
                                     <span class="material-symbols-rounded" aria-hidden="true">location_on</span>
-                                    Ir
+                                    <span data-i18n="action_go">Ir</span>
                                 </a>
                                 ${whatsapp ? `<a href="https://wa.me/549${whatsapp}" target="_blank" rel="noopener noreferrer" class="action-btn">
                                     <span class="material-symbols-rounded" aria-hidden="true">chat</span>
@@ -150,7 +151,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 </a>` : ''}
                                 ${telefono ? `<a href="tel:${telefono}" class="action-btn">
                                     <span class="material-symbols-rounded" aria-hidden="true">call</span>
-                                    Tel
+                                    <span data-i18n="action_tel">Tel</span>
                                 </a>` : ''}
                             </div>
                         </div>
@@ -160,6 +161,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         }
     }
+
+    // Las tarjetas se crean de forma asíncrona: se vuelve a aplicar el idioma activo
+    if (window.PDTF_i18n) window.PDTF_i18n.setLanguage(window.PDTF_i18n.current);
 
     if (spinner) spinner.classList.add('hidden');
 });

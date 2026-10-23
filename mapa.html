@@ -12,7 +12,8 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Mapa de dependencias - Policía de Tierra del Fuego</title>
+  <title data-i18n="page_title_map">Mapa de dependencias - Policía de Tierra del Fuego</title>
+  <script src="js/i18n.js"></script>
   <link rel="stylesheet" href="css/styles.css">
   <!-- Leaflet CSS y JS para el mapa interactivo (OpenStreetMap, 100% gratuito) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -121,16 +122,23 @@
 <body>
   <section class="pdtf-safety">
     <div class="pdtf-panel">
+      <div class="pdtf-topbar">
+        <div class="pdtf-lang-selector" role="group" aria-label="Seleccionar idioma / Select language">
+          <button type="button" class="pdtf-lang-btn is-active" data-lang="es" aria-label="Español">ES</button>
+          <button type="button" class="pdtf-lang-btn" data-lang="en" aria-label="English">EN</button>
+          <button type="button" class="pdtf-lang-btn" data-lang="pt" aria-label="Português">PT</button>
+        </div>
+      </div>
       <header class="pdtf-header">
-        <a href="index.html" class="pdtf-back">← Volver al panel principal</a>
+        <a href="index.html" class="pdtf-back" data-i18n="back_home">← Volver al panel principal</a>
         <div class="pdtf-header__brand">
           <img src="images/Escudo oro.png" alt="Escudo Policía de Tierra del Fuego" class="pdtf-header__logo">
           <div>
-            <p class="pdtf-kicker">Policía de Tierra del Fuego</p>
-            <h1 class="pdtf-title">Mapa de comisarías</h1>
+            <p class="pdtf-kicker" data-i18n="kicker">Policía de Tierra del Fuego</p>
+            <h1 class="pdtf-title" data-i18n="map_title">Mapa de comisarías</h1>
           </div>
         </div>
-        <p class="pdtf-intro">Geolocalización y mapa de comisarías en Tierra del Fuego. Tu ubicación nos ayuda a
+        <p class="pdtf-intro" data-i18n="map_intro">Geolocalización y mapa de comisarías en Tierra del Fuego. Tu ubicación nos ayuda a
           indicarte la comisaría más cercana en caso de ayuda.</p>
       </header>
 
@@ -150,11 +158,10 @@
           <div class="gps-actions">
             <button class="gps-btn gps-btn--active" id="recenterBtn" onclick="obtenerUbicacionGPS('general')">
               <span class="material-symbols-rounded" aria-hidden="true">my_location</span>
-              Comisaría más cercana
-            </button>
+              <span data-i18n="gps_btn_general">Comisaría más cercana</span>            </button>
             <button class="gps-btn" id="generoBtn" onclick="obtenerUbicacionGPS('genero')">
               <span class="material-symbols-rounded" aria-hidden="true">family_restroom</span>
-              Género y Familia más cercana
+              <span data-i18n="gps_btn_family">Género y Familia más cercana</span>
             </button>
           </div>
         </div>
@@ -167,11 +174,11 @@
           <div class="nearest-actions">
             <a href="#" target="_blank" rel="noopener noreferrer" class="nearest-btn" id="nearestNavBtn">
               <span class="material-symbols-rounded" aria-hidden="true">location_on</span>
-              Cómo llegar (Google Maps)
+              <span data-i18n="btn_how_to_get">Cómo llegar (Google Maps)</span>
             </a>
             <a href="tel:911" class="nearest-btn" style="background:var(--pdtf-lime); color:var(--pdtf-blue);">
               <span class="material-symbols-rounded" aria-hidden="true">call</span>
-              Llamar 911
+              <span data-i18n="btn_call_911">Llamar 911</span>
             </a>
           </div>
         </div>
@@ -188,9 +195,9 @@
   <div class="gps-notice" id="gpsNotice" role="dialog" aria-modal="true" aria-labelledby="gpsNoticeTitle">
     <div class="gps-notice__box">
       <span class="gps-notice__icon"><span class="material-symbols-rounded" aria-hidden="true">my_location</span></span>
-      <h2 class="gps-notice__title" id="gpsNoticeTitle">Activá tu ubicación</h2>
-      <p class="gps-notice__text">Necesitamos tu GPS para mostrarte la comisaría más cercana. Es solo para ayudarte: no guardamos tus datos.</p>
-      <button type="button" class="gps-notice__btn" id="gpsNoticeBtn">Entendido</button>
+      <h2 class="gps-notice__title" id="gpsNoticeTitle" data-i18n="gps_notice_title">Activá tu ubicación</h2>
+      <p class="gps-notice__text" data-i18n="gps_notice_text">Necesitamos tu GPS para mostrarte la comisaría más cercana. Es solo para ayudarte: no guardamos tus datos.</p>
+      <button type="button" class="gps-notice__btn" id="gpsNoticeBtn" data-i18n="gps_notice_btn">Entendido</button>
     </div>
   </div>
   <script>

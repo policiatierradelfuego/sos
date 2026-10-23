@@ -35,6 +35,43 @@ function esGeneroYFamilia(c) {
     return c.nombre.includes('Género y Familia');
 }
 
+// --- i18n: traducción de textos dinámicos (se vuelven a dibujar al cambiar de idioma) ---
+const tr = (k, p) => {
+    let s = window.PDTF_i18n ? window.PDTF_i18n.t(k) : k;
+    if (p) Object.keys(p).forEach(n => { s = s.replace('{' + n + '}', p[n]); });
+    return s;
+};
+
+let estadoGps = { title: 'gps_getting_location', sub: 'gps_requesting', params: null };
+let ultimoCercano = null; // { comisaria, distKm, buscaGenero }
+
+function renderGps() {
+    const t = document.getElementById('gpsTitle');
+    const s = document.getElementById('gpsSubtitle');
+    if (t) t.textContent = tr(estadoGps.title);
+    if (s) s.textContent = tr(estadoGps.sub, estadoGps.params);
+}
+
+function setEstadoGps(title, sub, params) {
+    estadoGps = { title, sub, params: params || null };
+    renderGps();
+}
+
+function renderCercano() {
+    if (!ultimoCercano) return;
+    const { comisaria, distKm, buscaGenero } = ultimoCercano;
+    document.getElementById('nearestBadge').textContent = tr(buscaGenero ? 'badge_nearest_family' : 'badge_nearest_general');
+    document.getElementById('nearestName').textContent = `${comisaria.nombre} (${comisaria.ciudad})`;
+    document.getElementById('nearestDist').textContent = distKm < 1
+        ? tr('dist_meters', { n: Math.round(distKm * 1000) })
+        : tr('dist_km', { n: distKm.toFixed(2) });
+}
+
+window.addEventListener('pdtf:languagechange', () => {
+    renderGps();
+    renderCercano();
+});
+
 // Fórmula de Haversine para calcular distancia en kilómetros entre 2 puntos GPS
 function calcularDistanciaKm(lat1, lon1, lat2, lon2) {
     const R = 6371; // Radio de la Tierra en km
@@ -84,11 +121,12 @@ function initMap() {
     COMISARIAS_DATA.forEach(c => {
         const marker = L.marker([c.lat, c.lng], { icon: esGeneroYFamilia(c) ? generoIcon : comisariaIcon }).addTo(map);
         const mapUrl = `https://www.google.com/maps/dir/?api=1&destination=${c.lat},${c.lng}`;
-        marker.bindPopup(`
+        // El contenido se genera al abrir el popup, así siempre respeta el idioma activo
+        marker.bindPopup(() => `
             <div class="popup-content">
                 <h4>${c.nombre}</h4>
-                <p><strong>Ciudad:</strong> ${c.ciudad}</p>
-                <a class="popup-link" href="${mapUrl}" target="_blank">🗺️ Cómo llegar</a>
+                <p><strong>${tr('popup_city')}</strong> ${c.ciudad}</p>
+                <a class="popup-link" href="${mapUrl}" target="_blank">🗺️ ${tr('popup_directions')}</a>
             </div>
         `);
     });
@@ -111,18 +149,14 @@ function obtenerUbicacionGPS(modo) {
 
     document.getElementById('recenterBtn').classList.toggle('gps-btn--active', !buscaGenero);
     document.getElementById('generoBtn').classList.toggle('gps-btn--active', buscaGenero);
-    const gpsTitle = document.getElementById('gpsTitle');
-    const gpsSubtitle = document.getElementById('gpsSubtitle');
     const gpsIcon = document.getElementById('gpsIcon');
 
     if (!navigator.geolocation) {
-        gpsTitle.textContent = "Geolocalización no soportada";
-        gpsSubtitle.textContent = "Tu navegador o dispositivo no admite la lectura de ubicación por GPS.";
+        setEstadoGps('gps_unsupported', 'gps_unsupported_sub');
         return;
     }
 
-    gpsTitle.textContent = "Obteniendo ubicación del móvil...";
-    gpsSubtitle.textContent = "Solicitando coordenadas GPS al dispositivo...";
+    setEstadoGps('gps_getting_location', 'gps_requesting_sub');
 
     navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -131,8 +165,11 @@ function obtenerUbicacionGPS(modo) {
             const accuracy = position.coords.accuracy;
 
             // Actualizar interfaz GPS
-            gpsTitle.textContent = "Ubicación detectada por GPS";
-            gpsSubtitle.textContent = `Coordenadas: ${userLat.toFixed(4)}, ${userLng.toFixed(4)} (precisión ~${Math.round(accuracy)}m)`;
+            setEstadoGps('gps_detected', 'gps_coords', {
+                lat: userLat.toFixed(4),
+                lng: userLng.toFixed(4),
+                acc: Math.round(accuracy)
+            });
             if (gpsIcon) gpsIcon.classList.add('active');
 
             // Icono rojo para el móvil / usuario
@@ -150,7 +187,7 @@ function obtenerUbicacionGPS(modo) {
                 userMarker.setLatLng([userLat, userLng]);
             } else {
                 userMarker = L.marker([userLat, userLng], { icon: userIcon }).addTo(map);
-                userMarker.bindPopup("<strong>📍 Tu Ubicación Actual</strong>").openPopup();
+                userMarker.bindPopup(() => `<strong>📍 ${tr('popup_you')}</strong>`).openPopup();
             }
 
             // Si ya existía el círculo de precisión, actualizarlo
@@ -181,20 +218,10 @@ function obtenerUbicacionGPS(modo) {
             if (comisariaMasCercana) {
                 // Mostrar banner con la comisaría más cercana
                 const nearestBanner = document.getElementById('nearestBanner');
-                document.getElementById('nearestBadge').textContent = buscaGenero
-                    ? '💜 Comisaría de Género y Familia más cercana'
-                    : '📍 Comisaría más cercana a tu posición';
-                const nearestName = document.getElementById('nearestName');
-                const nearestDist = document.getElementById('nearestDist');
                 const nearestNavBtn = document.getElementById('nearestNavBtn');
 
-                nearestName.textContent = `${comisariaMasCercana.nombre} (${comisariaMasCercana.ciudad})`;
-
-                let distTexto = menorDistancia < 1
-                    ? `Aprox. ${Math.round(menorDistancia * 1000)} metros de tu posición`
-                    : `Aprox. ${menorDistancia.toFixed(2)} km de tu posición`;
-
-                nearestDist.textContent = distTexto;
+                ultimoCercano = { comisaria: comisariaMasCercana, distKm: menorDistancia, buscaGenero };
+                renderCercano();
 
                 const mapsDirUrl = `https://www.google.com/maps/dir/?api=1&origin=${userLat},${userLng}&destination=${comisariaMasCercana.lat},${comisariaMasCercana.lng}`;
                 nearestNavBtn.href = mapsDirUrl;
@@ -211,11 +238,10 @@ function obtenerUbicacionGPS(modo) {
         },
         (error) => {
             console.warn("Error o denegación de GPS:", error);
-            gpsTitle.textContent = "Ubicación GPS no disponible";
             if (error.code === error.PERMISSION_DENIED) {
-                gpsSubtitle.textContent = "Permiso de ubicación denegado por el usuario. Puedes activar el GPS en los permisos del navegador.";
+                setEstadoGps('gps_unavailable', 'gps_denied');
             } else {
-                gpsSubtitle.textContent = "No se pudo obtener la señal GPS de tu dispositivo.";
+                setEstadoGps('gps_unavailable', 'gps_no_signal');
             }
         },
         {

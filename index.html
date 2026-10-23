@@ -18,6 +18,7 @@
 
   <!-- CSS Propio e Independiente -->
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/i18n.js"></script>
   <script src="js/pwa.js" defer></script>
 
   <!-- OneSignal Web Push SDK (DESHABILITADO: para reactivar, quitar este comentario y el de cierre más abajo)
@@ -82,22 +83,31 @@
   <section class="pdtf-safety" aria-label="Panel de seguridad y emergencias">
     <div class="pdtf-panel">
 
+      <!-- Selector de Idiomas -->
+      <div class="pdtf-topbar">
+        <div class="pdtf-lang-selector" role="group" aria-label="Seleccionar idioma / Select language">
+          <button type="button" class="pdtf-lang-btn is-active" data-lang="es" aria-label="Español">ES</button>
+          <button type="button" class="pdtf-lang-btn" data-lang="en" aria-label="English">EN</button>
+          <button type="button" class="pdtf-lang-btn" data-lang="pt" aria-label="Português">PT</button>
+        </div>
+      </div>
+
       <!-- Encabezado del Panel -->
       <header class="pdtf-header pdtf-header--home">
         <!-- Logo institucional (ubicado en carpeta de imágenes) -->
         <img src="images/Escudo oro.png" alt="Escudo Policía TDF" class="pdtf-header__logo">
-        <p class="pdtf-kicker">Policía de Tierra del Fuego</p>
-        <h1 class="pdtf-title">Seguridad y emergencias</h1>
-        <p class="pdtf-intro">Accesos rápidos para pedir ayuda, comunicar una emergencia y encontrar información útil.
+        <p class="pdtf-kicker" data-i18n="kicker">Policía de Tierra del Fuego</p>
+        <h1 class="pdtf-title" data-i18n="home_title">Seguridad y emergencias</h1>
+        <p class="pdtf-intro" data-i18n="home_intro">Accesos rápidos para pedir ayuda, comunicar una emergencia y encontrar información útil.
         </p>
       </header>
 
-      <!-- Botón Principal 911 (Llamada telefónica directa) -->
       <!-- Botón Principal 911 (Llamada telefónica directa) -->
 <a
   class="pdtf-911"
   href="tel:911"
   aria-label="Llamar al 911"
+  data-i18n-attr="aria-label:call_911_aria"
   onclick="try {
     if (typeof gtag === 'function') {
       gtag('event', 'clic_llamar_911', {
@@ -109,29 +119,29 @@
 >
   <div>
     <span class="pdtf-911__number">911</span>
-    <span class="pdtf-911__title">Emergencias de seguridad</span>
-    <span class="pdtf-911__desc">
+    <span class="pdtf-911__title" data-i18n="emergency_title">Emergencias de seguridad</span>
+    <span class="pdtf-911__desc" data-i18n="emergency_desc">
       Delitos, situaciones de riesgo y auxilio inmediato.
     </span>
-    <span class="pdtf-911__badge">DISPONIBLE 24 H</span>
+    <span class="pdtf-911__badge" data-i18n="emergency_badge">DISPONIBLE 24 H</span>
   </div>
 
-  <span class="pdtf-911__call" title="Llamar al 911">
+  <span class="pdtf-911__call" title="Llamar al 911" data-i18n-attr="title:call_911_aria">
     <span class="material-symbols-rounded" aria-hidden="true">call</span>
   </span>
 </a>
 
       <!-- Sección de Accesos Rápidos (Redirección a Subpáginas HTML) -->
       <section class="pdtf-tools">
-        <h2 class="pdtf-section-title">Accesos rápidos</h2>
+        <h2 class="pdtf-section-title" data-i18n="quick_access_title">Accesos rápidos</h2>
         <div class="pdtf-tool-grid">
 
           <!-- Botón 1: Comisaría más cercana -->
           <a class="pdtf-tool" href="mapa.html">
             <span class="material-symbols-rounded pdtf-tool__icon" aria-hidden="true">map</span>
             <span>
-              <span class="pdtf-tool__title">Comisaría más cercana</span>
-              <span class="pdtf-tool__desc">Encontrá la más cercana a tu ubicación actual</span>
+              <span class="pdtf-tool__title" data-i18n="tool_nearest_title">Comisaría más cercana</span>
+              <span class="pdtf-tool__desc" data-i18n="tool_nearest_desc">Encontrá la más cercana a tu ubicación actual</span>
             </span>
           </a>
 
@@ -139,8 +149,8 @@
           <a class="pdtf-tool" href="comisarias/comisarias.html">
             <span class="material-symbols-rounded pdtf-tool__icon" aria-hidden="true">local_police</span>
             <span>
-              <span class="pdtf-tool__title">Listado de comisarías</span>
-              <span class="pdtf-tool__desc">Dependencias y contactos</span>
+              <span class="pdtf-tool__title" data-i18n="tool_stations_title">Listado de comisarías</span>
+              <span class="pdtf-tool__desc" data-i18n="tool_stations_desc">Dependencias y contactos</span>
             </span>
           </a>
 
@@ -148,8 +158,8 @@
           <a class="pdtf-tool" href="https://policia.tierradelfuego.gob.ar/tra-serv/">
             <span class="material-symbols-rounded pdtf-tool__icon" aria-hidden="true">info</span>
             <span>
-              <span class="pdtf-tool__title">Trámites y servicios</span>
-              <span class="pdtf-tool__desc">Información útil y gestiones</span>
+              <span class="pdtf-tool__title" data-i18n="tool_services_title">Trámites y servicios</span>
+              <span class="pdtf-tool__desc" data-i18n="tool_services_desc">Información útil y gestiones</span>
             </span>
           </a>
 
@@ -157,8 +167,8 @@
           <a class="pdtf-tool" href="consejos.html">
             <span class="material-symbols-rounded pdtf-tool__icon" aria-hidden="true">gpp_maybe</span>
             <span>
-              <span class="pdtf-tool__title">Consejos de seguridad</span>
-              <span class="pdtf-tool__desc">Prevención y recomendaciones</span>
+              <span class="pdtf-tool__title" data-i18n="tool_safety_title">Consejos de seguridad</span>
+              <span class="pdtf-tool__desc" data-i18n="tool_safety_desc">Prevención y recomendaciones</span>
             </span>
           </a>
 
@@ -169,49 +179,57 @@
       <footer class="pdtf-footer">
         <button type="button" id="pdtf-share-btn" class="pdtf-share-btn">
           <span class="material-symbols-rounded" aria-hidden="true">share</span>
-          Compartir
+          <span data-i18n="share_btn">Compartir</span>
         </button>
-        <p>En una situación de riesgo inmediato, priorizá siempre la llamada al 911.</p>
+        <p data-i18n="footer_home">En una situación de riesgo inmediato, priorizá siempre la llamada al 911.</p>
       </footer>
     </div>
   </section>
 
   <!-- Modal de compartir (alternativa cuando no hay menú nativo) -->
   <div id="pdtf-share-modal" class="pdtf-share-modal" hidden>
-    <div class="pdtf-share-modal__box" role="dialog" aria-modal="true" aria-label="Compartir">
-      <h2 class="pdtf-share-modal__title">Compartir</h2>
+    <div class="pdtf-share-modal__box" role="dialog" aria-modal="true" aria-label="Compartir" data-i18n-attr="aria-label:share_modal_title">
+      <h2 class="pdtf-share-modal__title" data-i18n="share_modal_title">Compartir</h2>
       <div class="pdtf-share-modal__links">
         <a id="share-wa" target="_blank" rel="noopener">WhatsApp</a>
         <a id="share-tg" target="_blank" rel="noopener">Telegram</a>
         <a id="share-fb" target="_blank" rel="noopener">Facebook</a>
         <a id="share-x" target="_blank" rel="noopener">X</a>
-        <a id="share-mail">Correo</a>
+        <a id="share-mail" data-i18n="share_mail">Correo</a>
       </div>
       <div class="pdtf-share-modal__copy">
         <input id="share-url" type="text" readonly>
-        <button type="button" id="share-copy">Copiar</button>
+        <button type="button" id="share-copy" data-i18n="share_copy">Copiar</button>
       </div>
-      <button type="button" id="share-close" class="pdtf-share-modal__close">Cerrar</button>
+      <button type="button" id="share-close" class="pdtf-share-modal__close" data-i18n="share_close">Cerrar</button>
     </div>
   </div>
 
   <script>
     (function () {
       var URL_SHARE = 'https://policiatierradelfuego.github.io/sos/';
-      var TITLE = 'Seguridad y Emergencias - Policía de Tierra del Fuego';
-      var TEXT = 'Panel de emergencias de la Policía de Tierra del Fuego: ';
       var btn = document.getElementById('pdtf-share-btn');
       var modal = document.getElementById('pdtf-share-modal');
       var input = document.getElementById('share-url');
       var copyBtn = document.getElementById('share-copy');
-      var u = encodeURIComponent(URL_SHARE), t = encodeURIComponent(TEXT);
 
-      document.getElementById('share-wa').href = 'https://wa.me/?text=' + t + u;
-      document.getElementById('share-tg').href = 'https://t.me/share/url?url=' + u + '&text=' + t;
-      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + u;
-      document.getElementById('share-x').href = 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t;
-      document.getElementById('share-mail').href = 'mailto:?subject=' + encodeURIComponent(TITLE) + '&body=' + t + u;
       input.value = URL_SHARE;
+
+      function updateShareLinks() {
+        var t = window.PDTF_i18n ? window.PDTF_i18n.t('share_msg_text') : 'Panel de emergencias de la Policía de Tierra del Fuego: ';
+        var title = window.PDTF_i18n ? window.PDTF_i18n.t('page_title_home') : 'Seguridad y Emergencias - Policía de Tierra del Fuego';
+        var encUrl = encodeURIComponent(URL_SHARE);
+        var encText = encodeURIComponent(t);
+
+        document.getElementById('share-wa').href = 'https://wa.me/?text=' + encText + encUrl;
+        document.getElementById('share-tg').href = 'https://t.me/share/url?url=' + encUrl + '&text=' + encText;
+        document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encUrl;
+        document.getElementById('share-x').href = 'https://twitter.com/intent/tweet?url=' + encUrl + '&text=' + encText;
+        document.getElementById('share-mail').href = 'mailto:?subject=' + encodeURIComponent(title) + '&body=' + encText + encUrl;
+      }
+
+      updateShareLinks();
+      window.addEventListener('pdtf:languagechange', updateShareLinks);
 
       function track() {
         try { if (typeof gtag === 'function') gtag('event', 'share', { method: 'boton_compartir', content_type: 'pagina', item_id: URL_SHARE }); } catch (e) {}
@@ -220,14 +238,22 @@
 
       btn.addEventListener('click', function () {
         track();
+        var title = window.PDTF_i18n ? window.PDTF_i18n.t('page_title_home') : 'Seguridad y Emergencias';
+        var text = window.PDTF_i18n ? window.PDTF_i18n.t('share_msg_text') : '';
         if (navigator.share) {
-          navigator.share({ title: TITLE, text: TEXT, url: URL_SHARE }).catch(function () {});
+          navigator.share({ title: title, text: text, url: URL_SHARE }).catch(function () {});
         } else {
           modal.hidden = false;
         }
       });
+
       copyBtn.addEventListener('click', function () {
-        function ok() { copyBtn.textContent = '¡Copiado!'; setTimeout(function () { copyBtn.textContent = 'Copiar'; }, 2000); }
+        function ok() {
+          var copiedTxt = window.PDTF_i18n ? window.PDTF_i18n.t('share_copied') : '¡Copiado!';
+          var copyTxt = window.PDTF_i18n ? window.PDTF_i18n.t('share_copy') : 'Copiar';
+          copyBtn.textContent = copiedTxt;
+          setTimeout(function () { copyBtn.textContent = copyTxt; }, 2000);
+        }
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard.writeText(URL_SHARE).then(ok);
         } else {
