@@ -53,6 +53,67 @@
       color: var(--pdtf-blue);
       text-decoration: none;
     }
+
+    /* Cartel de aviso de GPS */
+    .gps-notice {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(10, 25, 35, .55);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s;
+    }
+
+    .gps-notice.show { opacity: 1; pointer-events: auto; }
+
+    .gps-notice__box {
+      width: 100%;
+      max-width: 320px;
+      padding: 24px 20px 20px;
+      border-radius: 20px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, .3);
+      transform: translateY(14px) scale(.96);
+      transition: transform .3s;
+    }
+
+    .gps-notice.show .gps-notice__box { transform: none; }
+
+    .gps-notice__icon {
+      display: inline-flex;
+      width: 56px;
+      height: 56px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--pdtf-lime);
+      color: var(--pdtf-blue);
+    }
+
+    .gps-notice__icon .material-symbols-rounded { font-size: 30px; }
+
+    .gps-notice__title { margin: 12px 0 6px; font-size: 18px; color: var(--pdtf-blue); }
+
+    .gps-notice__text { margin: 0 0 18px; font-size: 13px; line-height: 1.45; color: #555; }
+
+    .gps-notice__btn {
+      width: 100%;
+      padding: 12px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--pdtf-blue);
+      color: #fff;
+      font: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
   </style>
 <script src="js/pwa.js" defer></script>  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap">
 </head>
@@ -122,6 +183,35 @@
       <footer class="pdtf-footer">Policía de Tierra del Fuego A.e I.A.S.</footer>
     </div>
   </section>
+
+  <!-- Cartel de aviso de GPS -->
+  <div class="gps-notice" id="gpsNotice" role="dialog" aria-modal="true" aria-labelledby="gpsNoticeTitle">
+    <div class="gps-notice__box">
+      <span class="gps-notice__icon"><span class="material-symbols-rounded" aria-hidden="true">my_location</span></span>
+      <h2 class="gps-notice__title" id="gpsNoticeTitle">Activá tu ubicación</h2>
+      <p class="gps-notice__text">Necesitamos tu GPS para mostrarte la comisaría más cercana. Es solo para ayudarte: no guardamos tus datos.</p>
+      <button type="button" class="gps-notice__btn" id="gpsNoticeBtn">Entendido</button>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var notice = document.getElementById('gpsNotice');
+      function close() {
+        notice.classList.remove('show');
+        if (typeof obtenerUbicacionGPS === 'function') obtenerUbicacionGPS();
+      }
+      document.getElementById('gpsNoticeBtn').addEventListener('click', close);
+      notice.addEventListener('click', function (e) { if (e.target === notice) close(); });
+      function show() { setTimeout(function () { notice.classList.add('show'); }, 2000); }
+      if (navigator.permissions && navigator.permissions.query) {
+        navigator.permissions.query({ name: 'geolocation' }).then(function (r) {
+          if (r.state !== 'granted') show();
+        }).catch(show);
+      } else {
+        show();
+      }
+    })();
+  </script>
 
   <!-- Script interactivo del Mapa y GPS -->
   <script src="js/mapa.js"></script>

@@ -93,8 +93,14 @@ function initMap() {
         `);
     });
 
-    // Cargar posición del usuario mediante GPS
-    obtenerUbicacionGPS();
+    // Cargar posición del usuario mediante GPS.
+    // Si el permiso ya fue concedido se pide de inmediato; si no, se espera a que el
+    // usuario cierre el cartel informativo (ver mapa.html) para que el aviso salga primero.
+    if (navigator.permissions && navigator.permissions.query) {
+        navigator.permissions.query({ name: 'geolocation' })
+            .then(r => { if (r.state === 'granted') obtenerUbicacionGPS(); })
+            .catch(() => {});
+    }
 }
 
 // Función para solicitar ubicación GPS
