@@ -167,10 +167,79 @@
 
       <!-- Pie de página del panel -->
       <footer class="pdtf-footer">
-        En una situación de riesgo inmediato, priorizá siempre la llamada al 911.
+        <button type="button" id="pdtf-share-btn" class="pdtf-share-btn">
+          <span class="material-symbols-rounded" aria-hidden="true">share</span>
+          Compartir
+        </button>
+        <p>En una situación de riesgo inmediato, priorizá siempre la llamada al 911.</p>
       </footer>
     </div>
   </section>
+
+  <!-- Modal de compartir (alternativa cuando no hay menú nativo) -->
+  <div id="pdtf-share-modal" class="pdtf-share-modal" hidden>
+    <div class="pdtf-share-modal__box" role="dialog" aria-modal="true" aria-label="Compartir">
+      <h2 class="pdtf-share-modal__title">Compartir</h2>
+      <div class="pdtf-share-modal__links">
+        <a id="share-wa" target="_blank" rel="noopener">WhatsApp</a>
+        <a id="share-tg" target="_blank" rel="noopener">Telegram</a>
+        <a id="share-fb" target="_blank" rel="noopener">Facebook</a>
+        <a id="share-x" target="_blank" rel="noopener">X</a>
+        <a id="share-mail">Correo</a>
+      </div>
+      <div class="pdtf-share-modal__copy">
+        <input id="share-url" type="text" readonly>
+        <button type="button" id="share-copy">Copiar</button>
+      </div>
+      <button type="button" id="share-close" class="pdtf-share-modal__close">Cerrar</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var URL_SHARE = 'https://policiatierradelfuego.github.io/sos/';
+      var TITLE = 'Seguridad y Emergencias - Policía de Tierra del Fuego';
+      var TEXT = 'Panel de emergencias de la Policía de Tierra del Fuego: ';
+      var btn = document.getElementById('pdtf-share-btn');
+      var modal = document.getElementById('pdtf-share-modal');
+      var input = document.getElementById('share-url');
+      var copyBtn = document.getElementById('share-copy');
+      var u = encodeURIComponent(URL_SHARE), t = encodeURIComponent(TEXT);
+
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + t + u;
+      document.getElementById('share-tg').href = 'https://t.me/share/url?url=' + u + '&text=' + t;
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + u;
+      document.getElementById('share-x').href = 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t;
+      document.getElementById('share-mail').href = 'mailto:?subject=' + encodeURIComponent(TITLE) + '&body=' + t + u;
+      input.value = URL_SHARE;
+
+      function track() {
+        try { if (typeof gtag === 'function') gtag('event', 'share', { method: 'boton_compartir', content_type: 'pagina', item_id: URL_SHARE }); } catch (e) {}
+      }
+      function closeModal() { modal.hidden = true; }
+
+      btn.addEventListener('click', function () {
+        track();
+        if (navigator.share) {
+          navigator.share({ title: TITLE, text: TEXT, url: URL_SHARE }).catch(function () {});
+        } else {
+          modal.hidden = false;
+        }
+      });
+      copyBtn.addEventListener('click', function () {
+        function ok() { copyBtn.textContent = '¡Copiado!'; setTimeout(function () { copyBtn.textContent = 'Copiar'; }, 2000); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(URL_SHARE).then(ok);
+        } else {
+          input.select();
+          try { document.execCommand('copy'); ok(); } catch (e) {}
+        }
+      });
+      document.getElementById('share-close').addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+    })();
+  </script>
 
   <!-- Script JS modular opcional -->
   <script src="js/main.js"></script>

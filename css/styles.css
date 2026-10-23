@@ -409,6 +409,101 @@ body {
   text-align: center
 }
 
+.pdtf-footer p {
+  margin: 12px 0 0
+}
+
+.pdtf-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--pdtf-blue);
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .15s, opacity .15s
+}
+
+.pdtf-share-btn:hover { opacity: .9; transform: translateY(-1px) }
+.pdtf-share-btn .material-symbols-rounded { font-size: 18px }
+
+.pdtf-share-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(0, 0, 0, .55)
+}
+
+.pdtf-share-modal[hidden] { display: none }
+
+.pdtf-share-modal__box {
+  width: 100%;
+  max-width: 360px;
+  padding: 20px;
+  border-radius: 18px;
+  background: #fff;
+  color: #1c2a33;
+  font-size: 14px
+}
+
+.pdtf-share-modal__title { margin: 0 0 14px; font-size: 18px }
+
+.pdtf-share-modal__links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px
+}
+
+.pdtf-share-modal__links a {
+  padding: 10px;
+  border-radius: 10px;
+  background: #eef2f5;
+  color: inherit;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none
+}
+
+.pdtf-share-modal__copy { display: flex; gap: 8px; margin-top: 14px }
+
+.pdtf-share-modal__copy input {
+  min-width: 0;
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #cdd6dc;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 12px
+}
+
+.pdtf-share-modal__copy button,
+.pdtf-share-modal__close {
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: var(--pdtf-blue);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer
+}
+
+.pdtf-share-modal__close {
+  width: 100%;
+  margin-top: 12px;
+  background: #eef2f5;
+  color: #1c2a33
+}
+
 .pdtf-zone-card {
   display: flex;
   min-height: 150px;
@@ -1322,4 +1417,40 @@ body {
 
 .gps-actions .gps-btn:not(.gps-btn--active) {
   box-shadow: inset 0 0 0 1.5px rgba(23, 57, 75, .35)
+}
+/* ===== Accesos rápidos (index): textos más grandes y consistentes, máx. 2 líneas ===== */
+.pdtf-tool__title,
+.pdtf-tool__desc {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden
+}
+
+.pdtf-tool__title {
+  font-size: 18px;
+  line-height: 1.15;
+  letter-spacing: -.01em
+}
+
+.pdtf-tool__desc {
+  margin-top: 6px;
+  font-size: 12.5px;
+  line-height: 1.3
+}
+
+@media(min-width:700px) {
+  .pdtf-tool__title { font-size: 19px }
+  .pdtf-tool__desc { font-size: 13px }
+}
+
+@media(min-width:1024px) {
+  .pdtf-tool__title { font-size: 17px }
+  .pdtf-tool__desc { font-size: 12.5px }
+}
+
+/* Alinea títulos en la misma línea: todas las descripciones reservan 2 líneas */
+.pdtf-tool__desc {
+  min-height: calc(2 * 1.3em)
 }
