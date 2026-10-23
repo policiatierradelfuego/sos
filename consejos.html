@@ -12,90 +12,92 @@
   </script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Consejos de seguridad - Policía de Tierra del Fuego</title>
+  <title data-i18n="page_title_tips">Consejos de seguridad - Policía de Tierra del Fuego</title>
   <meta name="description"
     content="Guías de prevención para estafas, seguridad en el hogar, vía pública, compras y operaciones bancarias, menores en internet y seguridad vial.">
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/i18n.js"></script>
+  <script src="js/i18n-consejos.js"></script>
 <script src="js/pwa.js" defer></script></head>
 
 <body>
   <section class="pdtf-safety">
     <div class="pdtf-panel">
+      <div class="pdtf-topbar">
+        <div class="pdtf-lang-selector" role="group" aria-label="Seleccionar idioma / Select language">
+          <button type="button" class="pdtf-lang-btn is-active" data-lang="es" aria-label="Español">ES</button>
+          <button type="button" class="pdtf-lang-btn" data-lang="en" aria-label="English">EN</button>
+          <button type="button" class="pdtf-lang-btn" data-lang="pt" aria-label="Português">PT</button>
+        </div>
+      </div>
       <header class="pdtf-header">
-        <a href="index.html" class="pdtf-back">← Volver al panel principal</a>
+        <a href="index.html" class="pdtf-back" data-i18n="back_home">← Volver al panel principal</a>
         <div class="pdtf-header__brand">
           <img src="images/Escudo oro.png" alt="Escudo Policía de Tierra del Fuego" class="pdtf-header__logo">
           <div>
-            <p class="pdtf-kicker">Policía de Tierra del Fuego</p>
-            <h1 class="pdtf-title">TIPS para tu seguridad</h1>
+            <p class="pdtf-kicker" data-i18n="kicker">Policía de Tierra del Fuego</p>
+            <h1 class="pdtf-title" data-i18n="tips_title">TIPS para tu seguridad</h1>
           </div>
         </div>
-        <p class="pdtf-intro">Guías de prevención para la vivienda, la vía pública, la seguridad vial y las estafas.</p>
+        <p class="pdtf-intro" data-i18n="tips_intro">Guías de prevención para la vivienda, la vía pública, la seguridad vial y las estafas.</p>
       </header>
 
       <main class="pdtf-page-content">
         <div class="tips-card" style="text-align:center;padding:48px 24px;">
-          <h2 class="tips-card__title">Próximamente consejos para tu seguridad</h2>
+          <h2 class="tips-card__title" data-i18n="tips_soon">Próximamente consejos para tu seguridad</h2>
         </div>
 
         <!-- CONSEJOS TEMPORALMENTE OCULTOS
+             (ya traducidos a ES/EN/PT en js/i18n-consejos.js: al descomentar funcionan directamente)
         <nav class="tips-nav" aria-label="Temas">
-          <a href="#vacaciones">Vacaciones</a>
-          <a href="#vehiculo">Vehículo</a>
-          <a href="#gas">Gas</a>
-          <a href="#estafas">Estafas</a>
-          <a href="#hogar">Hogar</a>
-          <a href="#via-publica">Vía pública</a>
-          <a href="#compras">Compras y bancos</a>
-          <a href="#menores">Menores en internet</a>
-          <a href="#vial">Seguridad vial</a>
+          <a href="#vacaciones" data-i18n="nav_vac">Vacaciones</a>
+          <a href="#vehiculo" data-i18n="nav_veh">Vehículo</a>
+          <a href="#gas" data-i18n="nav_gas">Gas</a>
+          <a href="#estafas" data-i18n="nav_est">Estafas</a>
+          <a href="#hogar" data-i18n="nav_hog">Hogar</a>
+          <a href="#via-publica" data-i18n="nav_via">Vía pública</a>
+          <a href="#compras" data-i18n="nav_com">Compras y bancos</a>
+          <a href="#menores" data-i18n="nav_men">Menores en internet</a>
+          <a href="#vial" data-i18n="nav_vial">Seguridad vial</a>
         </nav>
 
         <div class="tips-list">
 
           <article class="tips-card" id="vacaciones">
             <div class="tips-card__head">
-              <p class="tips-card__eyebrow">Consejos de seguridad / 01</p>
-              <h2 class="tips-card__title">Dejá tu casa segura</h2>
-              <span class="tips-card__badge">¿TE VAS DE VACACIONES?</span>
+              <p class="tips-card__eyebrow"><span data-i18n="eyebrow_tips">Consejos de seguridad</span> / 01</p>
+              <h2 class="tips-card__title" data-i18n="vac_title">Dejá tu casa segura</h2>
+              <span class="tips-card__badge" data-i18n="vac_badge">¿TE VAS DE VACACIONES?</span>
             </div>
             <div class="tips-card__body">
-              <p class="tips-card__intro">Antes de salir: cerrá, verificá y coordiná con
-                alguien de confianza.</p>
+              <p class="tips-card__intro" data-i18n="vac_intro">Antes de salir: cerrá, verificá y coordiná con alguien de confianza.</p>
               <ol class="tips-steps">
                 <li class="tips-step"><span class="tips-step__num">01</span>
-                  <div><span class="tips-step__title">Cerrá los accesos</span><span class="tips-step__desc">Cerrá con
-                      llave las puertas. Revisá ventanas, garaje y accesos secundarios.</span></div>
+                  <div><span class="tips-step__title" data-i18n="vac_1t">Cerrá los accesos</span><span class="tips-step__desc" data-i18n="vac_1d">Cerrá con llave las puertas. Revisá ventanas, garaje y accesos secundarios.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">02</span>
-                  <div><span class="tips-step__title">Revisá las cerraduras</span><span class="tips-step__desc">Repará
-                      las que estén flojas, dañadas o no funcionen correctamente.</span></div>
+                  <div><span class="tips-step__title" data-i18n="vac_2t">Revisá las cerraduras</span><span class="tips-step__desc" data-i18n="vac_2d">Repará las que estén flojas, dañadas o no funcionen correctamente.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">03</span>
-                  <div><span class="tips-step__title">No escondas llaves afuera</span><span class="tips-step__desc">No
-                      las dejes en macetas, felpudos ni marcos de puertas.</span></div>
+                  <div><span class="tips-step__title" data-i18n="vac_3t">No escondas llaves afuera</span><span class="tips-step__desc" data-i18n="vac_3d">No las dejes en macetas, felpudos ni marcos de puertas.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">04</span>
-                  <div><span class="tips-step__title">Pedí apoyo a alguien de confianza</span><span
-                      class="tips-step__desc">Coordiná para que retire correspondencia y observe el exterior de la
-                      vivienda.</span></div>
+                  <div><span class="tips-step__title" data-i18n="vac_4t">Pedí apoyo a alguien de confianza</span><span class="tips-step__desc" data-i18n="vac_4d">Coordiná para que retire correspondencia y observe el exterior de la vivienda.</span></div>
                 </li>
               </ol>
               <div class="tips-alert">
-                <h3 class="tips-alert__title">Un apoyo extra</h3>
-                <p class="tips-alert__text">Si tenés luces programables, configurá horarios de encendido. No reemplazan
-                  el cierre seguro de puertas y ventanas.</p>
+                <h3 class="tips-alert__title" data-i18n="vac_at">Un apoyo extra</h3>
+                <p class="tips-alert__text" data-i18n="vac_ad">Si tenés luces programables, configurá horarios de encendido. No reemplazan el cierre seguro de puertas y ventanas.</p>
               </div>
               <div class="tips-sources">
-                <p class="tips-sources__title">Recordá: puertas con llave / ventanas aseguradas / contacto de confianza
-                </p>
-                <p class="tips-sources__title tips-sources__title--spaced">Fuentes de consulta</p>
+                <p class="tips-sources__title" data-i18n="vac_rem">Recordá: puertas con llave / ventanas aseguradas / contacto de confianza</p>
+                <p class="tips-sources__title tips-sources__title--spaced" data-i18n="tips_sources">Fuentes de consulta</p>
                 <ul>
                   <li><a
                       href="https://www.centinet.com.ar/como-proteger-tu-hogar-durante-las-vacaciones-consejos-esenciales-de-seguridad/"
-                      target="_blank" rel="noopener">Guía para proteger el hogar durante las vacaciones</a></li>
+                      target="_blank" rel="noopener" data-i18n="vac_s1">Guía para proteger el hogar durante las vacaciones</a></li>
                   <li><a href="https://www.detect.com.ar/blog/casa-segura-en-vacaciones" target="_blank"
-                      rel="noopener">Casa segura en vacaciones</a></li>
+                      rel="noopener" data-i18n="vac_s2">Casa segura en vacaciones</a></li>
                 </ul>
               </div>
             </div>
@@ -103,47 +105,39 @@
 
           <article class="tips-card" id="vehiculo">
             <div class="tips-card__head">
-              <p class="tips-card__eyebrow">Consejos de seguridad / 02</p>
-              <h2 class="tips-card__title">Documentación y mantenimiento al día</h2>
-              <span class="tips-card__badge">ANTES DE SALIR A LA RUTA</span>
+              <p class="tips-card__eyebrow"><span data-i18n="eyebrow_tips">Consejos de seguridad</span> / 02</p>
+              <h2 class="tips-card__title" data-i18n="veh_title">Documentación y mantenimiento al día</h2>
+              <span class="tips-card__badge" data-i18n="veh_badge">ANTES DE SALIR A LA RUTA</span>
             </div>
             <div class="tips-card__body">
-              <p class="tips-card__intro">Prepará el viaje con anticipación. No esperes a un
-                control o a una falla.</p>
+              <p class="tips-card__intro" data-i18n="veh_intro">Prepará el viaje con anticipación. No esperes a un control o a una falla.</p>
               <ol class="tips-steps">
                 <li class="tips-step"><span class="tips-step__num">01</span>
-                  <div><span class="tips-step__title">Documentación lista</span><span class="tips-step__desc">DNI,
-                      licencia vigente para el vehículo, cédula y comprobante de seguro vigente. RTO o VTV, cuando
-                      corresponda.</span></div>
+                  <div><span class="tips-step__title" data-i18n="veh_1t">Documentación lista</span><span class="tips-step__desc" data-i18n="veh_1d">DNI, licencia vigente para el vehículo, cédula y comprobante de seguro vigente. RTO o VTV, cuando corresponda.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">02</span>
-                  <div><span class="tips-step__title">Servicios al día</span><span class="tips-step__desc">Respetá los
-                      plazos y el kilometraje de mantenimiento indicados por el fabricante.</span></div>
+                  <div><span class="tips-step__title" data-i18n="veh_2t">Servicios al día</span><span class="tips-step__desc" data-i18n="veh_2d">Respetá los plazos y el kilometraje de mantenimiento indicados por el fabricante.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">03</span>
-                  <div><span class="tips-step__title">Neumáticos y frenos</span><span class="tips-step__desc">Revisá
-                      cubiertas, presión y auxilio. Hacé controlar frenos, dirección y suspensión.</span></div>
+                  <div><span class="tips-step__title" data-i18n="veh_3t">Neumáticos y frenos</span><span class="tips-step__desc" data-i18n="veh_3d">Revisá cubiertas, presión y auxilio. Hacé controlar frenos, dirección y suspensión.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">04</span>
-                  <div><span class="tips-step__title">Luces, fluidos y equipo</span><span
-                      class="tips-step__desc">Controlá luces, aceite, refrigerante y líquido de frenos. Revisá
-                      matafuego, balizas y herramientas para el auxilio.</span></div>
+                  <div><span class="tips-step__title" data-i18n="veh_4t">Luces, fluidos y equipo</span><span class="tips-step__desc" data-i18n="veh_4d">Controlá luces, aceite, refrigerante y líquido de frenos. Revisá matafuego, balizas y herramientas para el auxilio.</span></div>
                 </li>
               </ol>
               <div class="tips-alert">
-                <h3 class="tips-alert__title">Si algo no funciona bien, revisalo antes</h3>
-                <p class="tips-alert__text">Ruidos, vibraciones o cambios al frenar o conducir requieren una revisión.
-                  Las patentes deben estar colocadas y legibles.</p>
+                <h3 class="tips-alert__title" data-i18n="veh_at">Si algo no funciona bien, revisalo antes</h3>
+                <p class="tips-alert__text" data-i18n="veh_ad">Ruidos, vibraciones o cambios al frenar o conducir requieren una revisión. Las patentes deben estar colocadas y legibles.</p>
               </div>
               <div class="tips-sources">
-                <p class="tips-sources__title">Recordá: papeles vigentes / servicios al día / vehículo revisado</p>
-                <p class="tips-sources__title tips-sources__title--spaced">Fuentes de consulta</p>
+                <p class="tips-sources__title" data-i18n="veh_rem">Recordá: papeles vigentes / servicios al día / vehículo revisado</p>
+                <p class="tips-sources__title tips-sources__title--spaced" data-i18n="tips_sources">Fuentes de consulta</p>
                 <ul>
                   <li><a href="https://www.argentina.gob.ar/seguridadvial/licencianacional/documentacion"
-                      target="_blank" rel="noopener">ANSV: documentación obligatoria para circular</a></li>
+                      target="_blank" rel="noopener" data-i18n="veh_s1">ANSV: documentación obligatoria para circular</a></li>
                   <li><a
                       href="https://www.argentina.gob.ar/noticias/recomendaciones-para-salir-la-ruta-sin-complicaciones"
-                      target="_blank" rel="noopener">Recomendaciones para salir a la ruta</a></li>
+                      target="_blank" rel="noopener" data-i18n="veh_s2">Recomendaciones para salir a la ruta</a></li>
                 </ul>
               </div>
             </div>
@@ -151,46 +145,38 @@
 
           <article class="tips-card" id="gas">
             <div class="tips-card__head">
-              <p class="tips-card__eyebrow">Consejos de seguridad / 03</p>
-              <h2 class="tips-card__title">Revisá los artefactos de gas</h2>
-              <span class="tips-card__badge">SEGURIDAD EN EL HOGAR</span>
+              <p class="tips-card__eyebrow"><span data-i18n="eyebrow_tips">Consejos de seguridad</span> / 03</p>
+              <h2 class="tips-card__title" data-i18n="gas_title">Revisá los artefactos de gas</h2>
+              <span class="tips-card__badge" data-i18n="gas_badge">SEGURIDAD EN EL HOGAR</span>
             </div>
             <div class="tips-card__body">
-              <p class="tips-card__intro">Revisión anual y ventilación permanente: dos
-                cuidados fundamentales.</p>
+              <p class="tips-card__intro" data-i18n="gas_intro">Revisión anual y ventilación permanente: dos cuidados fundamentales.</p>
               <ol class="tips-steps">
                 <li class="tips-step"><span class="tips-step__num">01</span>
-                  <div><span class="tips-step__title">Una revisión cada año</span><span class="tips-step__desc">Pedí a
-                      un gasista matriculado que controle artefactos, ventilaciones y conductos de salida.</span></div>
+                  <div><span class="tips-step__title" data-i18n="gas_1t">Una revisión cada año</span><span class="tips-step__desc" data-i18n="gas_1d">Pedí a un gasista matriculado que controle artefactos, ventilaciones y conductos de salida.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">02</span>
-                  <div><span class="tips-step__title">Rejillas siempre libres</span><span class="tips-step__desc">No
-                      tapes ni obstruyas las ventilaciones, tampoco en los días de mucho frío.</span></div>
+                  <div><span class="tips-step__title" data-i18n="gas_2t">Rejillas siempre libres</span><span class="tips-step__desc" data-i18n="gas_2d">No tapes ni obstruyas las ventilaciones, tampoco en los días de mucho frío.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">03</span>
-                  <div><span class="tips-step__title">Atención a la llama</span><span class="tips-step__desc">Si es
-                      amarilla, anaranjada o roja, dejá de usar el artefacto y pedí una revisión.</span></div>
+                  <div><span class="tips-step__title" data-i18n="gas_3t">Atención a la llama</span><span class="tips-step__desc" data-i18n="gas_3d">Si es amarilla, anaranjada o roja, dejá de usar el artefacto y pedí una revisión.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">04</span>
-                  <div><span class="tips-step__title">No improvises calefacción</span><span class="tips-step__desc">No
-                      uses el horno ni las hornallas para calefaccionar. No repares ni modifiques instalaciones por tu
-                      cuenta.</span></div>
+                  <div><span class="tips-step__title" data-i18n="gas_4t">No improvises calefacción</span><span class="tips-step__desc" data-i18n="gas_4d">No uses el horno ni las hornallas para calefaccionar. No repares ni modifiques instalaciones por tu cuenta.</span></div>
                 </li>
               </ol>
               <div class="tips-alert">
-                <h3 class="tips-alert__title">El monóxido de carbono no se ve ni se huele</h3>
-                <p class="tips-alert__text">Puede producirse por una combustión deficiente. Que no haya olor a gas no
-                  significa que el ambiente sea seguro.</p>
+                <h3 class="tips-alert__title" data-i18n="gas_at">El monóxido de carbono no se ve ni se huele</h3>
+                <p class="tips-alert__text" data-i18n="gas_ad">Puede producirse por una combustión deficiente. Que no haya olor a gas no significa que el ambiente sea seguro.</p>
               </div>
               <div class="tips-sources">
-                <p class="tips-sources__title">Recordá: gasista matriculado / rejillas libres / conductos controlados
-                </p>
-                <p class="tips-sources__title tips-sources__title--spaced">Fuentes de consulta</p>
+                <p class="tips-sources__title" data-i18n="gas_rem">Recordá: gasista matriculado / rejillas libres / conductos controlados</p>
+                <p class="tips-sources__title tips-sources__title--spaced" data-i18n="tips_sources">Fuentes de consulta</p>
                 <ul>
                   <li><a href="https://www.enargas.gob.ar/secciones/monoxido-de-carbono/monoxido-de-carbono.php"
-                      target="_blank" rel="noopener">ENARGAS: prevención del monóxido de carbono</a></li>
+                      target="_blank" rel="noopener" data-i18n="gas_s1">ENARGAS: prevención del monóxido de carbono</a></li>
                   <li><a href="https://www.argentina.gob.ar/produccion/prevencion-intoxicacion-monoxido-carbono"
-                      target="_blank" rel="noopener">Prevención de intoxicaciones por monóxido</a></li>
+                      target="_blank" rel="noopener" data-i18n="gas_s2">Prevención de intoxicaciones por monóxido</a></li>
                 </ul>
               </div>
             </div>
@@ -199,45 +185,37 @@
 
           <article class="tips-card" id="estafas">
             <div class="tips-card__head">
-              <p class="tips-card__eyebrow">Seguridad ciudadana / 01</p>
-              <h2 class="tips-card__title">Estafas telefónicas y digitales</h2>
-              <span class="tips-card__badge">DETENETE · VERIFICÁ · PROTEGÉ TUS DATOS</span>
+              <p class="tips-card__eyebrow"><span data-i18n="eyebrow_citizen">Seguridad ciudadana</span> / 01</p>
+              <h2 class="tips-card__title" data-i18n="est_title">Estafas telefónicas y digitales</h2>
+              <span class="tips-card__badge" data-i18n="est_badge">DETENETE · VERIFICÁ · PROTEGÉ TUS DATOS</span>
             </div>
             <div class="tips-card__body">
               <ol class="tips-steps">
                 <li class="tips-step"><span class="tips-step__num">01</span>
-                  <div><span class="tips-step__title">Tus claves son privadas</span><span class="tips-step__desc">No
-                      compartas contraseñas, PIN, token ni códigos de verificación de SMS o WhatsApp.</span></div>
+                  <div><span class="tips-step__title" data-i18n="est_1t">Tus claves son privadas</span><span class="tips-step__desc" data-i18n="est_1d">No compartas contraseñas, PIN, token ni códigos de verificación de SMS o WhatsApp.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">02</span>
-                  <div><span class="tips-step__title">No ingreses desde enlaces sospechosos</span><span
-                      class="tips-step__desc">No uses enlaces recibidos por mensajes para validar cuentas, cobrar
-                      premios o evitar supuestos bloqueos.</span></div>
+                  <div><span class="tips-step__title" data-i18n="est_2t">No ingreses desde enlaces sospechosos</span><span class="tips-step__desc" data-i18n="est_2d">No uses enlaces recibidos por mensajes para validar cuentas, cobrar premios o evitar supuestos bloqueos.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">03</span>
-                  <div><span class="tips-step__title">No operes bajo instrucciones</span><span
-                      class="tips-step__desc">No realices operaciones en cajeros o aplicaciones bancarias siguiendo una
-                      llamada inesperada.</span></div>
+                  <div><span class="tips-step__title" data-i18n="est_3t">No operes bajo instrucciones</span><span class="tips-step__desc" data-i18n="est_3d">No realices operaciones en cajeros o aplicaciones bancarias siguiendo una llamada inesperada.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">04</span>
-                  <div><span class="tips-step__title">Verificá por tu cuenta</span><span class="tips-step__desc">Cortá
-                      el contacto y buscá el canal oficial de la entidad. No uses el teléfono o enlace que te envió
-                      quien te contactó.</span></div>
+                  <div><span class="tips-step__title" data-i18n="est_4t">Verificá por tu cuenta</span><span class="tips-step__desc" data-i18n="est_4d">Cortá el contacto y buscá el canal oficial de la entidad. No uses el teléfono o enlace que te envió quien te contactó.</span></div>
                 </li>
               </ol>
               <div class="tips-alert">
-                <h3 class="tips-alert__title">Si dicen que un familiar está en peligro</h3>
-                <p class="tips-alert__text">Cortá la comunicación y contactá directamente a esa persona o a otro
-                  familiar. No brindes nombres, direcciones ni información sobre dinero.</p>
+                <h3 class="tips-alert__title" data-i18n="est_at">Si dicen que un familiar está en peligro</h3>
+                <p class="tips-alert__text" data-i18n="est_ad">Cortá la comunicación y contactá directamente a esa persona o a otro familiar. No brindes nombres, direcciones ni información sobre dinero.</p>
               </div>
               <div class="tips-sources">
-                <p class="tips-sources__title">Fuentes de consulta</p>
+                <p class="tips-sources__title" data-i18n="tips_sources">Fuentes de consulta</p>
                 <ul>
                   <li><a href="https://www.bcra.gob.ar/como-prevenir-estafas-virtuales/" target="_blank"
-                      rel="noopener">Banco Central: prevención de estafas</a></li>
+                      rel="noopener" data-i18n="est_s1">Banco Central: prevención de estafas</a></li>
                   <li><a
                       href="https://buenosaires.gob.ar/gcaba_historico/seguridad/consejos-para-evitar-estafas-virtuales-y-telefonicas"
-                      target="_blank" rel="noopener">Prevención de estafas telefónicas</a></li>
+                      target="_blank" rel="noopener" data-i18n="est_s2">Prevención de estafas telefónicas</a></li>
                 </ul>
               </div>
             </div>
@@ -245,42 +223,34 @@
 
           <article class="tips-card" id="hogar">
             <div class="tips-card__head">
-              <p class="tips-card__eyebrow">Seguridad ciudadana / 02</p>
-              <h2 class="tips-card__title">Seguridad en el hogar</h2>
-              <span class="tips-card__badge">CERRÁ · VERIFICÁ · EVITÁ EXPONERTE</span>
+              <p class="tips-card__eyebrow"><span data-i18n="eyebrow_citizen">Seguridad ciudadana</span> / 02</p>
+              <h2 class="tips-card__title" data-i18n="hog_title">Seguridad en el hogar</h2>
+              <span class="tips-card__badge" data-i18n="hog_badge">CERRÁ · VERIFICÁ · EVITÁ EXPONERTE</span>
             </div>
             <div class="tips-card__body">
               <ol class="tips-steps">
                 <li class="tips-step"><span class="tips-step__num">01</span>
-                  <div><span class="tips-step__title">Cerrá los accesos</span><span class="tips-step__desc">Cerrá con
-                      llave al salir y mantené cerradas las ventanas accesibles desde el exterior cuando no
-                      estés.</span></div>
+                  <div><span class="tips-step__title" data-i18n="hog_1t">Cerrá los accesos</span><span class="tips-step__desc" data-i18n="hog_1d">Cerrá con llave al salir y mantené cerradas las ventanas accesibles desde el exterior cuando no estés.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">02</span>
-                  <div><span class="tips-step__title">Verificá antes de abrir</span><span class="tips-step__desc">No
-                      permitas el ingreso de personas desconocidas sin comprobar su identidad y el motivo de la
-                      visita.</span></div>
+                  <div><span class="tips-step__title" data-i18n="hog_2t">Verificá antes de abrir</span><span class="tips-step__desc" data-i18n="hog_2d">No permitas el ingreso de personas desconocidas sin comprobar su identidad y el motivo de la visita.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">03</span>
-                  <div><span class="tips-step__title">Cuidá lo que queda a la vista</span><span
-                      class="tips-step__desc">Evitá dejar objetos de valor visibles o al alcance desde las
-                      ventanas.</span></div>
+                  <div><span class="tips-step__title" data-i18n="hog_3t">Cuidá lo que queda a la vista</span><span class="tips-step__desc" data-i18n="hog_3d">Evitá dejar objetos de valor visibles o al alcance desde las ventanas.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">04</span>
-                  <div><span class="tips-step__title">Si perdés las llaves</span><span class="tips-step__desc">Evaluá
-                      cambiar la cerradura para evitar accesos no autorizados.</span></div>
+                  <div><span class="tips-step__title" data-i18n="hog_4t">Si perdés las llaves</span><span class="tips-step__desc" data-i18n="hog_4d">Evaluá cambiar la cerradura para evitar accesos no autorizados.</span></div>
                 </li>
               </ol>
               <div class="tips-alert">
-                <h3 class="tips-alert__title">Si encontrás un acceso forzado</h3>
-                <p class="tips-alert__text">No ingreses ni toques nada. Alejate y solicitá asistencia policial. Evitá
-                  enfrentarte a quien esté cometiendo un robo: priorizá tu integridad.</p>
+                <h3 class="tips-alert__title" data-i18n="hog_at">Si encontrás un acceso forzado</h3>
+                <p class="tips-alert__text" data-i18n="hog_ad">No ingreses ni toques nada. Alejate y solicitá asistencia policial. Evitá enfrentarte a quien esté cometiendo un robo: priorizá tu integridad.</p>
               </div>
               <div class="tips-sources">
-                <p class="tips-sources__title">Fuentes de consulta</p>
+                <p class="tips-sources__title" data-i18n="tips_sources">Fuentes de consulta</p>
                 <ul>
                   <li><a href="https://buenosaires.gob.ar/gcaba_historico/noticias/consejos-de-seguridad"
-                      target="_blank" rel="noopener">Consejos de seguridad — Buenos Aires Ciudad</a></li>
+                      target="_blank" rel="noopener" data-i18n="hog_s1">Consejos de seguridad — Buenos Aires Ciudad</a></li>
                 </ul>
               </div>
             </div>
@@ -288,40 +258,34 @@
 
           <article class="tips-card" id="via-publica">
             <div class="tips-card__head">
-              <p class="tips-card__eyebrow">Seguridad ciudadana / 03</p>
-              <h2 class="tips-card__title">Cuidados en la vía pública</h2>
-              <span class="tips-card__badge">OBSERVÁ · RESGUARDÁ · PRIORIZÁ TU SEGURIDAD</span>
+              <p class="tips-card__eyebrow"><span data-i18n="eyebrow_citizen">Seguridad ciudadana</span> / 03</p>
+              <h2 class="tips-card__title" data-i18n="via_title">Cuidados en la vía pública</h2>
+              <span class="tips-card__badge" data-i18n="via_badge">OBSERVÁ · RESGUARDÁ · PRIORIZÁ TU SEGURIDAD</span>
             </div>
             <div class="tips-card__body">
               <ol class="tips-steps">
                 <li class="tips-step"><span class="tips-step__num">01</span>
-                  <div><span class="tips-step__title">Pertenencias cerca del cuerpo</span><span
-                      class="tips-step__desc">Llevá bolsos y mochilas cerrados y bajo tu control.</span></div>
+                  <div><span class="tips-step__title" data-i18n="via_1t">Pertenencias cerca del cuerpo</span><span class="tips-step__desc" data-i18n="via_1d">Llevá bolsos y mochilas cerrados y bajo tu control.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">02</span>
-                  <div><span class="tips-step__title">Guardá teléfono y billetera</span><span
-                      class="tips-step__desc">Usá compartimentos seguros en lugar de llevarlos a la vista.</span></div>
+                  <div><span class="tips-step__title" data-i18n="via_2t">Guardá teléfono y billetera</span><span class="tips-step__desc" data-i18n="via_2d">Usá compartimentos seguros en lugar de llevarlos a la vista.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">03</span>
-                  <div><span class="tips-step__title">Prestá atención a las distracciones</span><span
-                      class="tips-step__desc">Mantené tus pertenencias bajo tu control si alguien intenta distraerte de
-                      forma insistente.</span></div>
+                  <div><span class="tips-step__title" data-i18n="via_3t">Prestá atención a las distracciones</span><span class="tips-step__desc" data-i18n="via_3d">Mantené tus pertenencias bajo tu control si alguien intenta distraerte de forma insistente.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">04</span>
-                  <div><span class="tips-step__title">Si te detenés a conversar</span><span class="tips-step__desc">Al
-                      dar una indicación, no pierdas de vista tus objetos personales.</span></div>
+                  <div><span class="tips-step__title" data-i18n="via_4t">Si te detenés a conversar</span><span class="tips-step__desc" data-i18n="via_4d">Al dar una indicación, no pierdas de vista tus objetos personales.</span></div>
                 </li>
               </ol>
               <div class="tips-alert">
-                <h3 class="tips-alert__title">La prevención no implica culpabilizar</h3>
-                <p class="tips-alert__text">Estas medidas buscan reducir riesgos. La responsabilidad por un delito
-                  siempre corresponde a quien lo comete.</p>
+                <h3 class="tips-alert__title" data-i18n="via_at">La prevención no implica culpabilizar</h3>
+                <p class="tips-alert__text" data-i18n="via_ad">Estas medidas buscan reducir riesgos. La responsabilidad por un delito siempre corresponde a quien lo comete.</p>
               </div>
               <div class="tips-sources">
-                <p class="tips-sources__title">Fuentes de consulta</p>
+                <p class="tips-sources__title" data-i18n="tips_sources">Fuentes de consulta</p>
                 <ul>
                   <li><a href="https://buenosaires.gob.ar/gcaba_historico/noticias/consejos-de-seguridad"
-                      target="_blank" rel="noopener">Consejos de seguridad — Buenos Aires Ciudad</a></li>
+                      target="_blank" rel="noopener" data-i18n="via_s1">Consejos de seguridad — Buenos Aires Ciudad</a></li>
                 </ul>
               </div>
             </div>
@@ -329,45 +293,38 @@
 
           <article class="tips-card" id="compras">
             <div class="tips-card__head">
-              <p class="tips-card__eyebrow">Seguridad ciudadana / 04</p>
-              <h2 class="tips-card__title">Compras, ventas y operaciones bancarias</h2>
-              <span class="tips-card__badge">COMPROBÁ EL MOVIMIENTO, NO SOLO EL MENSAJE</span>
+              <p class="tips-card__eyebrow"><span data-i18n="eyebrow_citizen">Seguridad ciudadana</span> / 04</p>
+              <h2 class="tips-card__title" data-i18n="com_title">Compras, ventas y operaciones bancarias</h2>
+              <span class="tips-card__badge" data-i18n="com_badge">COMPROBÁ EL MOVIMIENTO, NO SOLO EL MENSAJE</span>
             </div>
             <div class="tips-card__body">
               <ol class="tips-steps">
                 <li class="tips-step"><span class="tips-step__num">01</span>
-                  <div><span class="tips-step__title">Revisá el destinatario</span><span class="tips-step__desc">Antes
-                      de pagar o transferir, verificá la identidad del destinatario y los datos de la operación.</span>
+                  <div><span class="tips-step__title" data-i18n="com_1t">Revisá el destinatario</span><span class="tips-step__desc" data-i18n="com_1d">Antes de pagar o transferir, verificá la identidad del destinatario y los datos de la operación.</span>
                   </div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">02</span>
-                  <div><span class="tips-step__title">Comprobá la acreditación</span><span class="tips-step__desc">Si
-                      vendés un producto, revisá el ingreso del dinero en tu propia cuenta. Una captura o comprobante no
-                      es suficiente.</span></div>
+                  <div><span class="tips-step__title" data-i18n="com_2t">Comprobá la acreditación</span><span class="tips-step__desc" data-i18n="com_2d">Si vendés un producto, revisá el ingreso del dinero en tu propia cuenta. Una captura o comprobante no es suficiente.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">03</span>
-                  <div><span class="tips-step__title">No compartas claves</span><span class="tips-step__desc">Desconfiá
-                      de beneficios que exijan entregar contraseñas o seguir instrucciones en un cajero.</span></div>
+                  <div><span class="tips-step__title" data-i18n="com_3t">No compartas claves</span><span class="tips-step__desc" data-i18n="com_3d">Desconfiá de beneficios que exijan entregar contraseñas o seguir instrucciones en un cajero.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">04</span>
-                  <div><span class="tips-step__title">Desconfiá de la urgencia</span><span class="tips-step__desc">Si
-                      una oferta, premio o reintegro exige actuar de inmediato, frená y verificá por un canal
-                      oficial.</span></div>
+                  <div><span class="tips-step__title" data-i18n="com_4t">Desconfiá de la urgencia</span><span class="tips-step__desc" data-i18n="com_4d">Si una oferta, premio o reintegro exige actuar de inmediato, frená y verificá por un canal oficial.</span></div>
                 </li>
               </ol>
               <div class="tips-alert">
-                <h3 class="tips-alert__title">¿Te piden devolver una transferencia?</h3>
-                <p class="tips-alert__text">Revisá los movimientos en tu propia cuenta y consultá con tu banco antes de
-                  actuar. No respondas bajo presión.</p>
+                <h3 class="tips-alert__title" data-i18n="com_at">¿Te piden devolver una transferencia?</h3>
+                <p class="tips-alert__text" data-i18n="com_ad">Revisá los movimientos en tu propia cuenta y consultá con tu banco antes de actuar. No respondas bajo presión.</p>
               </div>
               <div class="tips-sources">
-                <p class="tips-sources__title">Fuentes de consulta</p>
+                <p class="tips-sources__title" data-i18n="tips_sources">Fuentes de consulta</p>
                 <ul>
                   <li><a
                       href="https://www.argentina.gob.ar/seguridad/ciberdelito/recomendaciones-para-evitar-estafas-en-internet"
-                      target="_blank" rel="noopener">Recomendaciones para evitar estafas</a></li>
+                      target="_blank" rel="noopener" data-i18n="com_s1">Recomendaciones para evitar estafas</a></li>
                   <li><a href="https://www.bcra.gob.ar/como-prevenir-estafas-virtuales/" target="_blank"
-                      rel="noopener">Banco Central: prevención de estafas</a></li>
+                      rel="noopener" data-i18n="com_s2">Banco Central: prevención de estafas</a></li>
                 </ul>
               </div>
             </div>
@@ -375,48 +332,39 @@
 
           <article class="tips-card" id="menores">
             <div class="tips-card__head">
-              <p class="tips-card__eyebrow">Seguridad ciudadana / 05</p>
-              <h2 class="tips-card__title">Niñas, niños y adolescentes en internet</h2>
-              <span class="tips-card__badge">ESCUCHÁ · ACOMPAÑÁ · CONSTRUÍ CONFIANZA</span>
+              <p class="tips-card__eyebrow"><span data-i18n="eyebrow_citizen">Seguridad ciudadana</span> / 05</p>
+              <h2 class="tips-card__title" data-i18n="men_title">Niñas, niños y adolescentes en internet</h2>
+              <span class="tips-card__badge" data-i18n="men_badge">ESCUCHÁ · ACOMPAÑÁ · CONSTRUÍ CONFIANZA</span>
             </div>
             <div class="tips-card__body">
               <ol class="tips-steps">
                 <li class="tips-step"><span class="tips-step__num">01</span>
-                  <div><span class="tips-step__title">Conversá sin juzgar</span><span class="tips-step__desc">Hablá
-                      sobre los juegos, aplicaciones y redes sociales que utilizan. Promové que pidan ayuda si algo les
-                      incomoda.</span></div>
+                  <div><span class="tips-step__title" data-i18n="men_1t">Conversá sin juzgar</span><span class="tips-step__desc" data-i18n="men_1d">Hablá sobre los juegos, aplicaciones y redes sociales que utilizan. Promové que pidan ayuda si algo les incomoda.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">02</span>
-                  <div><span class="tips-step__title">Los perfiles pueden ser falsos</span><span
-                      class="tips-step__desc">Explicales que una persona en internet puede no ser quien dice ser.</span>
+                  <div><span class="tips-step__title" data-i18n="men_2t">Los perfiles pueden ser falsos</span><span class="tips-step__desc" data-i18n="men_2d">Explicales que una persona en internet puede no ser quien dice ser.</span>
                   </div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">03</span>
-                  <div><span class="tips-step__title">Configurá la privacidad</span><span
-                      class="tips-step__desc">Ayudalos a proteger sus cuentas y a no compartir datos personales,
-                      ubicación ni imágenes íntimas.</span></div>
+                  <div><span class="tips-step__title" data-i18n="men_3t">Configurá la privacidad</span><span class="tips-step__desc" data-i18n="men_3d">Ayudalos a proteger sus cuentas y a no compartir datos personales, ubicación ni imágenes íntimas.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">04</span>
-                  <div><span class="tips-step__title">Cuidá también lo que publicás</span><span
-                      class="tips-step__desc">Evitá difundir información que permita identificar su escuela, domicilio o
-                      rutinas.</span></div>
+                  <div><span class="tips-step__title" data-i18n="men_4t">Cuidá también lo que publicás</span><span class="tips-step__desc" data-i18n="men_4d">Evitá difundir información que permita identificar su escuela, domicilio o rutinas.</span></div>
                 </li>
               </ol>
               <div class="tips-alert">
-                <h3 class="tips-alert__title">Ante acoso sexual por internet</h3>
-                <p class="tips-alert__text">Conservá mensajes e información. No borres conversaciones ni te hagas pasar
-                  por el niño, niña o adolescente para contactar al agresor. Realizá la denuncia en una comisaría o
-                  fiscalía.</p>
+                <h3 class="tips-alert__title" data-i18n="men_at">Ante acoso sexual por internet</h3>
+                <p class="tips-alert__text" data-i18n="men_ad">Conservá mensajes e información. No borres conversaciones ni te hagas pasar por el niño, niña o adolescente para contactar al agresor. Realizá la denuncia en una comisaría o fiscalía.</p>
               </div>
               <div class="tips-sources">
-                <p class="tips-sources__title">Fuentes de consulta</p>
+                <p class="tips-sources__title" data-i18n="tips_sources">Fuentes de consulta</p>
                 <ul>
                   <li><a
                       href="https://www.argentina.gob.ar/justicia/convosenlaweb/situaciones/estrategias-para-prevenir-el-grooming"
-                      target="_blank" rel="noopener">Prevención del grooming</a></li>
+                      target="_blank" rel="noopener" data-i18n="men_s1">Prevención del grooming</a></li>
                   <li><a
                       href="https://www.argentina.gob.ar/justicia/consejos-y-recomendaciones-para-prevenir-el-grooming"
-                      target="_blank" rel="noopener">Consejos y recomendaciones</a></li>
+                      target="_blank" rel="noopener" data-i18n="men_s2">Consejos y recomendaciones</a></li>
                 </ul>
               </div>
             </div>
@@ -424,42 +372,35 @@
 
           <article class="tips-card" id="vial">
             <div class="tips-card__head">
-              <p class="tips-card__eyebrow">Seguridad ciudadana / 06</p>
-              <h2 class="tips-card__title">Seguridad vial: nieve y hielo</h2>
-              <span class="tips-card__badge">PLANIFICÁ · REDUCÍ LA VELOCIDAD · TOMÁ DISTANCIA</span>
+              <p class="tips-card__eyebrow"><span data-i18n="eyebrow_citizen">Seguridad ciudadana</span> / 06</p>
+              <h2 class="tips-card__title" data-i18n="vial_title">Seguridad vial: nieve y hielo</h2>
+              <span class="tips-card__badge" data-i18n="vial_badge">PLANIFICÁ · REDUCÍ LA VELOCIDAD · TOMÁ DISTANCIA</span>
             </div>
             <div class="tips-card__body">
               <ol class="tips-steps">
                 <li class="tips-step"><span class="tips-step__num">01</span>
-                  <div><span class="tips-step__title">Antes de salir</span><span class="tips-step__desc">Consultá el
-                      estado de rutas y las indicaciones oficiales. Si el viaje no es imprescindible y las condiciones
-                      son adversas, considerá postergarlo.</span></div>
+                  <div><span class="tips-step__title" data-i18n="vial_1t">Antes de salir</span><span class="tips-step__desc" data-i18n="vial_1d">Consultá el estado de rutas y las indicaciones oficiales. Si el viaje no es imprescindible y las condiciones son adversas, considerá postergarlo.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">02</span>
-                  <div><span class="tips-step__title">Prepará el vehículo</span><span class="tips-step__desc">Verificá
-                      qué equipamiento exige el tramo: neumáticos adecuados, cadenas u otros elementos indicados por la
-                      autoridad.</span></div>
+                  <div><span class="tips-step__title" data-i18n="vial_2t">Prepará el vehículo</span><span class="tips-step__desc" data-i18n="vial_2d">Verificá qué equipamiento exige el tramo: neumáticos adecuados, cadenas u otros elementos indicados por la autoridad.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">03</span>
-                  <div><span class="tips-step__title">Conducí con suavidad</span><span class="tips-step__desc">Reducí la
-                      velocidad y aumentá la distancia. Evitá frenadas, aceleraciones y giros bruscos.</span></div>
+                  <div><span class="tips-step__title" data-i18n="vial_3t">Conducí con suavidad</span><span class="tips-step__desc" data-i18n="vial_3d">Reducí la velocidad y aumentá la distancia. Evitá frenadas, aceleraciones y giros bruscos.</span></div>
                 </li>
                 <li class="tips-step"><span class="tips-step__num">04</span>
-                  <div><span class="tips-step__title">Mantené la visibilidad</span><span class="tips-step__desc">Circulá
-                      con luces bajas. No te detengas en curvas, pendientes o lugares de poca visibilidad.</span></div>
+                  <div><span class="tips-step__title" data-i18n="vial_4t">Mantené la visibilidad</span><span class="tips-step__desc" data-i18n="vial_4d">Circulá con luces bajas. No te detengas en curvas, pendientes o lugares de poca visibilidad.</span></div>
                 </li>
               </ol>
               <div class="tips-alert">
-                <h3 class="tips-alert__title">Sin alcohol y sin distracciones</h3>
-                <p class="tips-alert__text">No consumas alcohol si vas a conducir. Usá el celular únicamente con el
-                  vehículo detenido en un lugar seguro.</p>
+                <h3 class="tips-alert__title" data-i18n="vial_at">Sin alcohol y sin distracciones</h3>
+                <p class="tips-alert__text" data-i18n="vial_ad">No consumas alcohol si vas a conducir. Usá el celular únicamente con el vehículo detenido en un lugar seguro.</p>
               </div>
               <div class="tips-sources">
-                <p class="tips-sources__title">Fuentes de consulta</p>
+                <p class="tips-sources__title" data-i18n="tips_sources">Fuentes de consulta</p>
                 <ul>
                   <li><a
                       href="https://www.argentina.gob.ar/noticias/recomendaciones-para-manejar-en-rutas-y-caminos-con-nieve-sobre-la-calzada"
-                      target="_blank" rel="noopener">Conducción en rutas con nieve — Vialidad Nacional</a></li>
+                      target="_blank" rel="noopener" data-i18n="vial_s1">Conducción en rutas con nieve — Vialidad Nacional</a></li>
                 </ul>
               </div>
             </div>
