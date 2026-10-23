@@ -22,6 +22,35 @@
         safari_web_id: "web.onesignal.auto.62a04992-e924-4258-8064-560c4d6dc347",
         notifyButton: {
           enable: true,
+          text: {
+            'tip.state.unsubscribed': 'Suscribite para recibir alertas',
+            'tip.state.subscribed': 'Estás suscripto a las alertas',
+            'tip.state.blocked': 'Bloqueaste las notificaciones',
+            'message.prenotify': 'Click para suscribirte a las alertas',
+            'message.action.subscribed': '¡Gracias por suscribirte!',
+            'message.action.resubscribed': 'Estás suscripto a las alertas',
+            'message.action.unsubscribed': 'No recibirás más alertas',
+            'dialog.main.title': 'Administrar alertas',
+            'dialog.main.button.subscribe': 'SUSCRIBIRME',
+            'dialog.main.button.unsubscribe': 'DESUSCRIBIRME',
+            'dialog.blocked.title': 'Desbloquear notificaciones',
+            'dialog.blocked.message': 'Seguí estas instrucciones para permitir las notificaciones:'
+          }
+        },
+        promptOptions: {
+          slidedown: {
+            prompts: [
+              {
+                type: "push",
+                autoPrompt: false,
+                text: {
+                  actionMessage: "Policía de Tierra del Fuego: ¿querés recibir alertas y avisos de seguridad importantes?",
+                  acceptButton: "Permitir",
+                  cancelButton: "Más tarde"
+                }
+              }
+            ]
+          }
         },
       });
 
