@@ -1,5 +1,5 @@
-// Integración OneSignal Push Notifications
-importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
+// Integración OneSignal Push Notifications (DESHABILITADO)
+// importScripts("https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.sw.js");
 
 /* Service Worker - Policía TDF. Network-first con respaldo en caché (offline). */
 const CACHE = 'pdtf-v3';
