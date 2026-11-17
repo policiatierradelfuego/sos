@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JCQ4YMV0M"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-6JCQ4YMV0M');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Nómina y registro oficial de agencias de seguridad privada habilitadas en Tierra del Fuego.">
+  <title>Agencias de Seguridad Privada - Policía de Tierra del Fuego</title>
+
+  <!-- Estilos e iconos del sitio -->
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap">
+  <script src="../js/i18n.js"></script>
+  <script src="../js/pwa.js" defer></script>
+
+  <style>
+    /* Estilos complementarios específicos para la tabla de agencias y vista móvil */
+    .pdtf-agencias-container {
+      padding: 20px 16px 32px;
+    }
+
+    /* Barra de filtros y búsqueda */
+    .pdtf-filter-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .pdtf-filter-bar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .pdtf-search-wrapper {
+      position: relative;
+      flex: 1;
+      max-width: 450px;
+    }
+
+    .pdtf-search-wrapper .material-symbols-rounded {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--pdtf-muted);
+      font-size: 20px;
+      pointer-events: none;
+    }
+
+    .pdtf-search-input {
+      width: 100%;
+      padding: 12px 14px 12px 42px;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--pdtf-blue);
+      background: #fff;
+      border: 1px solid var(--pdtf-line);
+      border-radius: var(--pdtf-radius-md);
+      outline: none;
+      transition: var(--pdtf-transition);
+    }
+
+    .pdtf-search-input:focus {
+      border-color: var(--pdtf-blue);
+      box-shadow: 0 0 0 3px rgba(23, 57, 75, 0.1);
+    }
+
+    .pdtf-city-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .pdtf-pill-btn {
+      white-space: nowrap;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--pdtf-muted);
+      background: #fff;
+      border: 1px solid var(--pdtf-line);
+      cursor: pointer;
+      transition: var(--pdtf-transition);
+    }
+
+    .pdtf-pill-btn:hover {
+      color: var(--pdtf-blue);
+      border-color: var(--pdtf-blue);
+    }
+
+    .pdtf-pill-btn.is-active {
+      background: var(--pdtf-blue);
+      color: #fff;
+      border-color: var(--pdtf-blue);
+    }
+
+    .pdtf-stats-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--pdtf-muted);
+      margin-bottom: 12px;
+    }
+
+    /* Tabla de escritorio y tablets */
+    .pdtf-table-card {
+      background: #fff;
+      border: 1px solid var(--pdtf-line);
+      border-radius: var(--pdtf-radius-md);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+    }
+
+    .pdtf-table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .pdtf-data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13.5px;
+    }
+
+    .pdtf-data-table th {
+      background: #fafbfc;
+      padding: 14px 16px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--pdtf-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1px solid var(--pdtf-line);
+      white-space: nowrap;
+    }
+
+    .pdtf-data-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(23, 57, 75, 0.06);
+      vertical-align: middle;
+      color: var(--pdtf-blue);
+    }
+
+    .pdtf-data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pdtf-data-table tr:hover td {
+      background: #f8fafc;
+    }
+
+    .pdtf-badge-city {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .pdtf-badge-city--rg {
+      background: rgba(4, 126, 26, 0.12);
+      color: #036915;
+    }
+
+    .pdtf-badge-city--ush {
+      background: rgba(23, 57, 75, 0.12);
+      color: var(--pdtf-blue);
+    }
+
+    .pdtf-badge-city--tol {
+      background: rgba(242, 201, 13, 0.22);
+      color: #8c7100;
+    }
+
+    .pdtf-badge-city--other {
+      background: #eee;
+      color: #777;
+    }
+
+    .pdtf-link-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--pdtf-blue);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.15s ease;
+    }
+
+    .pdtf-link-action:hover {
+      color: var(--pdtf-green);
+      text-decoration: underline;
+    }
+
+    .pdtf-link-action .material-symbols-rounded {
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .pdtf-text-muted-empty {
+      color: #9aa4aa;
+      font-style: italic;
+      font-size: 12px;
+    }
+
+    /* Adaptación móvil con vista de tarjetas en pantallas muy estrechas (opcional y progresivo) */
+    @media (max-width: 680px) {
+      .pdtf-data-table th:nth-child(1),
+      .pdtf-data-table td:nth-child(1) {
+        position: sticky;
+        left: 0;
+        background: #fff;
+        z-index: 1;
+        box-shadow: 2px 0 4px rgba(0,0,0,0.03);
+      }
+      .pdtf-data-table th:nth-child(1) {
+        background: #fafbfc;
+      }
+    }
+
+    .pdtf-empty-state {
+      padding: 40px 20px;
+      text-align: center;
+      color: var(--pdtf-muted);
+    }
+
+    .pdtf-empty-state .material-symbols-rounded {
+      font-size: 40px;
+      margin-bottom: 8px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="pdtf-safety" aria-labelledby="page-title">
+    <div class="pdtf-panel">
+
+      <!-- Barra superior / Selector de Idiomas -->
+      <div class="pdtf-topbar">
+        <div class="pdtf-lang-selector" role="group" aria-label="Seleccionar idioma / Select language">
+          <button type="button" class="pdtf-lang-btn is-active" data-lang="es" aria-label="Español">ES</button>
+          <button type="button" class="pdtf-lang-btn" data-lang="en" aria-label="English">EN</button>
+          <button type="button" class="pdtf-lang-btn" data-lang="pt" aria-label="Português">PT</button>
+        </div>
+      </div>
+
+      <!-- Encabezado -->
+      <header class="pdtf-header">
+        <a href="../index.html" class="pdtf-back" data-i18n="back_home">← Volver al panel principal</a>
+        <div class="pdtf-header__brand">
+          <img src="../images/Escudo oro.png" alt="Escudo Policía TDF" class="pdtf-header__logo">
+          <div>
+            <p class="pdtf-kicker">Policía de Tierra del Fuego</p>
+            <h1 class="pdtf-title" id="page-title">Agencias de Seguridad Privada</h1>
+          </div>
+        </div>
+        <p class="pdtf-intro">
+          Registro oficial y nómina de prestadores de seguridad privada en la provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur.
+        </p>
+      </header>
+
+      <!-- Contenido Principal -->
+      <main class="pdtf-agencias-container">
+
+        <!-- Controles de búsqueda y filtrado -->
+        <div class="pdtf-filter-bar">
+          <div class="pdtf-search-wrapper">
+            <span class="material-symbols-rounded" aria-hidden="true">search</span>
+            <input type="text" id="searchInput" class="pdtf-search-input"
+              placeholder="Buscar por nombre, domicilio, teléfono..." aria-label="Buscar agencia">
+          </div>
+
+          <div class="pdtf-city-pills" role="radiogroup" aria-label="Filtrar por ciudad">
+            <button type="button" class="pdtf-pill-btn is-active" data-filter="all">Todas</button>
+            <button type="button" class="pdtf-pill-btn" data-filter="Río Grande">Río Grande</button>
+            <button type="button" class="pdtf-pill-btn" data-filter="Ushuaia">Ushuaia</button>
+            <button type="button" class="pdtf-pill-btn" data-filter="Tolhuin">Tolhuin</button>
+          </div>
+        </div>
+
+        <div class="pdtf-stats-badge" id="statsCount">Cargando agencias...</div>
+
+        <!-- Indicador de carga -->
+        <div class="loading-spinner" id="loadingSpinner">
+          <div class="spinner"></div>
+          <p>Cargando información oficial...</p>
+        </div>
+
+        <!-- Contenedor de la tabla -->
+        <div class="pdtf-table-card" id="tableCard" style="display: none;">
+          <div class="pdtf-table-scroll">
+            <table class="pdtf-data-table" id="agenciasTable">
+              <thead>
+                <tr>
+                  <th scope="col">Ciudad</th>
+                  <th scope="col">Empresa</th>
+                  <th scope="col">Domicilio</th>
+                  <th scope="col">Teléfono</th>
+                  <th scope="col">Email de Contacto</th>
+                </tr>
+              </thead>
+              <tbody id="agenciasTableBody">
+                <!-- Se llena dinámicamente con JavaScript desde el JSON -->
+              </tbody>
+            </table>
+          </div>
+          <div id="noResults" class="pdtf-empty-state" style="display: none;">
+            <span class="material-symbols-rounded">search_off</span>
+            <p>No se encontraron agencias que coincidan con la búsqueda.</p>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Pie de página -->
+      <footer class="pdtf-footer">
+        <p>Policía de Tierra del Fuego A. e I.A.S. — Registro de Agencias de Seguridad Privada</p>
+      </footer>
+
+    </div>
+  </section>
+
+  <!-- Lógica dinámica de carga y filtrado -->
+  <script>
+    (function () {
+      let agencias = [];
+      let currentFilter = 'all';
+      let currentSearch = '';
+
+      const spinner = document.getElementById('loadingSpinner');
+      const tableCard = document.getElementById('tableCard');
+      const tableBody = document.getElementById('agenciasTableBody');
+      const noResults = document.getElementById('noResults');
+      const statsCount = document.getElementById('statsCount');
+      const searchInput = document.getElementById('searchInput');
+      const pillButtons = document.querySelectorAll('.pdtf-pill-btn');
+
+      // Cargar datos dinámicamente desde el JSON
+      fetch('agencias_seguridad.json')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Error al cargar datos: ' + response.statusText);
+          }
+          return response.json();
+        })
+        .then(data => {
+          agencias = data;
+          spinner.style.display = 'none';
+          tableCard.style.display = 'block';
+          renderTable();
+        })
+        .catch(err => {
+          console.error('Error:', err);
+          spinner.innerHTML = '<p style="color:var(--pdtf-red);">No se pudo cargar el listado de agencias.</p>';
+        });
+
+      // Función para normalizar texto para búsqueda
+      function normalize(str) {
+        return (str || '')
+          .toLowerCase()
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '');
+      }
+
+      // Obtener clase de badge por ciudad
+      function getCityBadge(city) {
+        const c = normalize(city);
+        if (c.includes('rio grande')) return 'pdtf-badge-city--rg';
+        if (c.includes('ushuaia')) return 'pdtf-badge-city--ush';
+        if (c.includes('tolhuin')) return 'pdtf-badge-city--tol';
+        return 'pdtf-badge-city--other';
+      }
+
+      // Renderizar filas de la tabla
+      function renderTable() {
+        const searchNormalized = normalize(currentSearch);
+
+        const filtered = agencias.filter(item => {
+          // Filtro por ciudad
+          if (currentFilter !== 'all') {
+            const itemCity = normalize(item.ciudad);
+            const targetCity = normalize(currentFilter);
+            if (!itemCity.includes(targetCity)) return false;
+          }
+
+          // Filtro por texto de búsqueda
+          if (searchNormalized) {
+            const matchesNombre = normalize(item.nombre).includes(searchNormalized);
+            const matchesDomicilio = normalize(item.domicilio).includes(searchNormalized);
+            const matchesTelefono = normalize(item.telefono).includes(searchNormalized);
+            const matchesEmail = normalize(item.email).includes(searchNormalized);
+            const matchesCiudad = normalize(item.ciudad).includes(searchNormalized);
+            return matchesNombre || matchesDomicilio || matchesTelefono || matchesEmail || matchesCiudad;
+          }
+
+          return true;
+        });
+
+        statsCount.textContent = `Mostrando ${filtered.length} de ${agencias.length} agencias registradas`;
+
+        if (filtered.length === 0) {
+          tableBody.innerHTML = '';
+          noResults.style.display = 'block';
+          return;
+        }
+
+        noResults.style.display = 'none';
+
+        const rowsHtml = filtered.map(item => {
+          const badgeClass = getCityBadge(item.ciudad);
+          const ciudadText = item.ciudad || 'No informada';
+          const domicilioText = item.domicilio ? item.domicilio : '<span class="pdtf-text-muted-empty">No informado</span>';
+          
+          // Formateo de teléfono (puede contener múltiples números o formatos)
+          let telefonoHtml = '<span class="pdtf-text-muted-empty">No informado</span>';
+          if (item.telefono) {
+            const rawPhones = item.telefono.split(/[\/\-–]/);
+            // Si tiene barra, separar
+            if (item.telefono.includes('/')) {
+              const parts = item.telefono.split('/').map(p => p.trim());
+              telefonoHtml = parts.map(p => {
+                const cleanNumber = p.replace(/[^\d+]/g, '');
+                return `<a class="pdtf-link-action" href="tel:${cleanNumber}"><span class="material-symbols-rounded">call</span>${p}</a>`;
+              }).join('<br>');
+            } else {
+              const cleanNumber = item.telefono.replace(/[^\d+]/g, '');
+              telefonoHtml = `<a class="pdtf-link-action" href="tel:${cleanNumber}"><span class="material-symbols-rounded">call</span>${item.telefono}</a>`;
+            }
+          }
+
+          // Formateo de correo
+          let emailHtml = '<span class="pdtf-text-muted-empty">No informado</span>';
+          if (item.email) {
+            emailHtml = `<a class="pdtf-link-action" href="mailto:${item.email}"><span class="material-symbols-rounded">mail</span>${item.email}</a>`;
+          }
+
+          return `
+            <tr>
+              <td>
+                <span class="pdtf-badge-city ${badgeClass}">${ciudadText}</span>
+              </td>
+              <td>
+                <strong>${item.nombre}</strong>
+              </td>
+              <td>${domicilioText}</td>
+              <td>${telefonoHtml}</td>
+              <td>${emailHtml}</td>
+            </tr>
+          `;
+        }).join('');
+
+        tableBody.innerHTML = rowsHtml;
+      }
+
+      // Event listeners para filtros de ciudad
+      pillButtons.forEach(btn => {
+        btn.addEventListener('click', function () {
+          pillButtons.forEach(b => b.classList.remove('is-active'));
+          this.classList.add('is-active');
+          currentFilter = this.getAttribute('data-filter');
+          renderTable();
+        });
+      });
+
+      // Event listener para búsqueda
+      searchInput.addEventListener('input', function (e) {
+        currentSearch = e.target.value;
+        renderTable();
+      });
+
+    })();
+  </script>
+</body>
+
+</html>
+

@@ -1,0 +1,163 @@
+[
+  {
+    "ciudad": "Río Grande",
+    "nombre": "ASES",
+    "domicilio": "Rioja Nº 565",
+    "telefono": "2964-499006",
+    "email": "daniel.carrere@ases.com.ar"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "ASIPROF",
+    "domicilio": "Estrada Nº 713 1º piso Dto. “ B”",
+    "telefono": "2964-557666",
+    "email": "doncan3434@gmail.com"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "AVIC SATELITAL",
+    "domicilio": "Ushuaia Nº 812",
+    "telefono": "2901-584433",
+    "email": "info@avicsatelital.com.ar"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "BRÚJULA S.A.",
+    "domicilio": "Alfonsina Storni Nº 1185",
+    "telefono": "2964-577277",
+    "email": "riogrande@brujula-sa.com"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "DNZT",
+    "domicilio": "Laserre Nº 678",
+    "telefono": "2964-569679",
+    "email": "jizquierdodnzt@gmail.com"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "DON PEDRO",
+    "domicilio": "Bilbao Nº 896",
+    "telefono": "2964-557466",
+    "email": "donpedrosociedad@gmail.com"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "G4S",
+    "domicilio": "Don Bosco Nº 1080",
+    "telefono": "2964-625313",
+    "email": "paulina.guerra@g4s.com.ar"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "GRUSEP",
+    "domicilio": "Simon Bolivar Nº 1930",
+    "telefono": "2964-501502",
+    "email": "grusep.seguridad@hotmail.com"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "PROSEGUR",
+    "domicilio": "Alférez Mackinlay Nº 839",
+    "telefono": "2901-466952",
+    "email": "hector.benicio@prosegur.com"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "PROTECTA",
+    "domicilio": "Hipólito Irigoyen Nº 525",
+    "telefono": "2964-406059",
+    "email": "lnramirez@yahoo.com.ar"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "SARDI S.R.L.",
+    "domicilio": "Alberdi Nº 359",
+    "telefono": "2964-557307",
+    "email": "admsardiseguridad@gmail.com"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "SEA",
+    "domicilio": "Perú Nº 915",
+    "telefono": "2964-646334",
+    "email": "daniel@grupodafe.com"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "SECURION (ex SECURITAS)",
+    "domicilio": "Venus Videla Nº 112",
+    "telefono": "2901-603401",
+    "email": "jldiaz@securion.com.ar"
+  },
+  {
+    "ciudad": "Río Grande",
+    "nombre": "SKORPIONS",
+    "domicilio": "Karukinka Nº 113",
+    "telefono": "2964-403599",
+    "email": "skorpionstdf@gmail.com"
+  },
+  {
+    "ciudad": "Tolhuin",
+    "nombre": "EMIR",
+    "domicilio": "Antonio Livasic Nº 750",
+    "telefono": "2964-489467",
+    "email": "emirseguridadehigiene@gmail.com"
+  },
+  {
+    "ciudad": "Ushuaia",
+    "nombre": "AVIC SATELITAL",
+    "domicilio": "Av. Alem Nº 4344",
+    "telefono": "2901-584433",
+    "email": "info@avicsatelital.com.ar"
+  },
+  {
+    "ciudad": "Ushuaia",
+    "nombre": "BUSHI-DO S.R.L.",
+    "domicilio": "",
+    "telefono": "2901-556567",
+    "email": ""
+  },
+  {
+    "ciudad": "Ushuaia",
+    "nombre": "DNZT",
+    "domicilio": "Olegario Andrade Nº 528",
+    "telefono": "2964-569679",
+    "email": "jizquierdodnzt@gmail.com"
+  },
+  {
+    "ciudad": "Ushuaia",
+    "nombre": "GREEN ARMOR",
+    "domicilio": "Av. Alem Nº 4344 STAND 1",
+    "telefono": "2901-583292 / 0810-4442-7667",
+    "email": "contacto@greenarmor.com.ar"
+  },
+  {
+    "ciudad": "Ushuaia",
+    "nombre": "JENIZAROS",
+    "domicilio": "Bº 245 Viviendas tira 12B PB Dto 3",
+    "telefono": "2901-471202",
+    "email": "jenizaros.seguridad@gmail.com"
+  },
+  {
+    "ciudad": "Ushuaia",
+    "nombre": "SUR SEGURIDAD",
+    "domicilio": "San Martín Nº 788 1º piso Local 55",
+    "telefono": "2901-615717",
+    "email": "arona.ferreira@gmail.com"
+  },
+  {
+    "ciudad": "Ushuaia",
+    "nombre": "VIGILAN S.A.",
+    "domicilio": "Roca Nº 360 tira 2 1º piso Dto. B",
+    "telefono": "2901-603401",
+    "email": "cartejo@hotmail.com"
+  },
+  {
+    "ciudad": "No informada",
+    "nombre": "NSE",
+    "domicilio": "",
+    "telefono": "",
+    "email": ""
+  }
+]
