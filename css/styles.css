@@ -468,6 +468,12 @@ body {
   margin: 12px 0 0
 }
 
+.pdtf-footer p[data-i18n="footer_home"] {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
 .pdtf-share-btn {
   display: inline-flex;
   align-items: center;
