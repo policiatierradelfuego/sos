@@ -126,6 +126,22 @@ body {
   max-width: none
 }
 
+@media (max-width: 600px) {
+  .pdtf-header--home {
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 14px
+  }
+
+  .pdtf-header--home .pdtf-header__logo {
+    height: clamp(92px, 24vw, 112px);
+    max-width: 100%
+  }
+
+  .pdtf-header--home .pdtf-title {
+    font-size: clamp(19px, 5.2vw, 24px)
+  }
+}
+
 /* Escritorio: escudo grande a la izquierda; kicker, título e intro apilados a la derecha */
 @media(min-width:700px) {
   .pdtf-header--home {
