@@ -94,17 +94,22 @@ body {
   line-height: 1.45
 }
 
-/* Header de la portada: móvil = escudo x2 con kicker+título al lado, intro debajo */
+/* Header de la portada: escudo a la izquierda, kicker + título + intro apilados a la derecha */
 .pdtf-header--home {
   display: grid;
   grid-template-columns: auto 1fr;
-  column-gap: 14px;
+  column-gap: 18px;
+  align-items: center
+}
+
+.pdtf-header--home > a {
+  grid-row: 1 / 4;
+  display: inline-flex;
   align-items: center
 }
 
 .pdtf-header--home .pdtf-header__logo {
-  grid-row: 1 / 3;
-  height: 76px
+  height: 88px
 }
 
 .pdtf-header--home .pdtf-kicker {
@@ -112,11 +117,12 @@ body {
 }
 
 .pdtf-header--home .pdtf-title {
-  align-self: start
+  align-self: center
 }
 
 .pdtf-header--home .pdtf-intro {
-  grid-column: 1 / -1;
+  grid-column: 2;
+  align-self: start;
   max-width: none
 }
 
