@@ -30,17 +30,23 @@
     function showUpdate() {
       if (updateShown) return;
       updateShown = true;
-      var msg = window.PDTF_i18n ? window.PDTF_i18n.t('update_available') : 'Hay una nueva versión disponible';
-      var btnText = window.PDTF_i18n ? window.PDTF_i18n.t('update_btn') : 'Actualizar';
-      var bar = document.createElement('div');
-      bar.setAttribute('role', 'alert');
-      bar.style.cssText = 'position:fixed;left:12px;right:12px;top:12px;z-index:10000;max-width:460px;margin:0 auto;' +
-        'display:flex;align-items:center;gap:12px;padding:12px 14px;background:#17394b;color:#fff;border-radius:14px;' +
-        'box-shadow:0 10px 30px rgba(0,0,0,.35);font-size:.88rem;line-height:1.25';
-      bar.innerHTML = '<span style="flex:1"><strong>' + msg + '</strong></span>' +
-        '<button type="button" style="border:0;border-radius:10px;padding:9px 14px;background:#f2c90d;color:#0f2734;font-weight:700;cursor:pointer">' + btnText + '</button>';
-      bar.querySelector('button').addEventListener('click', function () { location.reload(); });
-      document.body.appendChild(bar);
+      fetch(base + 'version.json', { cache: 'no-cache' })
+        .then(function (res) { return res.ok ? res.json() : null; })
+        .catch(function () { return null; })
+        .then(function (data) {
+          var ver = (data && data.version) ? ' (v' + data.version + ')' : '';
+          var msg = (window.PDTF_i18n ? window.PDTF_i18n.t('update_available') : 'Hay una nueva versión disponible') + ver;
+          var btnText = window.PDTF_i18n ? window.PDTF_i18n.t('update_btn') : 'Actualizar';
+          var bar = document.createElement('div');
+          bar.setAttribute('role', 'alert');
+          bar.style.cssText = 'position:fixed;left:12px;right:12px;top:12px;z-index:10000;max-width:460px;margin:0 auto;' +
+            'display:flex;align-items:center;gap:12px;padding:12px 14px;background:#17394b;color:#fff;border-radius:14px;' +
+            'box-shadow:0 10px 30px rgba(0,0,0,.35);font-size:.88rem;line-height:1.25';
+          bar.innerHTML = '<span style="flex:1"><strong>' + msg + '</strong></span>' +
+            '<button type="button" style="border:0;border-radius:10px;padding:9px 14px;background:#f2c90d;color:#0f2734;font-weight:700;cursor:pointer">' + btnText + '</button>';
+          bar.querySelector('button').addEventListener('click', function () { location.reload(); });
+          document.body.appendChild(bar);
+        });
     }
     // El nuevo service worker toma el control: la página abierta quedó desactualizada
     navigator.serviceWorker.addEventListener('controllerchange', function () {
