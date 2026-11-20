@@ -638,6 +638,24 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
+[data-theme="dark"] .gps-status-card {
+  background: var(--pdtf-card-bg);
+  border-color: var(--pdtf-line);
+  color: #e6eef2;
+}
+
+[data-theme="dark"] .gps-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #e6eef2;
+}
+
+[data-theme="dark"] .gps-btn--active {
+  background: #f2c90d;
+  border-color: #f2c90d;
+  color: #0f2734;
+}
+
 .pdtf-footer p[data-i18n="footer_home"] {
   font-size: 14px;
   font-weight: 700;
