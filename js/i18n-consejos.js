@@ -20,9 +20,14 @@
       tips_soon: 'Próximamente consejos para tu seguridad',
       eyebrow_tips: 'Consejos de seguridad',
       eyebrow_citizen: 'Seguridad ciudadana',
+      eyebrow_outdoors: 'Vía pública y naturaleza',
+      cat_home: 'Hogar',
+      cat_outdoors: 'Vía pública y naturaleza',
+      cat_road: 'Tránsito y rutas',
+      cat_digital: 'Estafas y entorno digital',
       tips_sources: 'Fuentes de consulta',
       nav_vac: 'Vacaciones', nav_veh: 'Vehículo', nav_gas: 'Gas', nav_est: 'Estafas', nav_hog: 'Hogar',
-      nav_via: 'Vía pública', nav_com: 'Compras y bancos', nav_men: 'Menores en internet', nav_vial: 'Seguridad vial'
+      nav_via: 'Vía pública', nav_cam: 'Caminata', nav_com: 'Compras y bancos', nav_men: 'Menores en internet', nav_vial: 'Seguridad vial'
     },
     en: {
       page_title_tips: 'Safety Tips - Tierra del Fuego Police',
@@ -31,9 +36,14 @@
       tips_soon: 'Safety tips coming soon',
       eyebrow_tips: 'Safety tips',
       eyebrow_citizen: 'Public safety',
+      eyebrow_outdoors: 'Public spaces & outdoors',
+      cat_home: 'Home',
+      cat_outdoors: 'Public spaces & outdoors',
+      cat_road: 'Traffic & roads',
+      cat_digital: 'Scams & digital safety',
       tips_sources: 'Sources',
       nav_vac: 'Vacation', nav_veh: 'Vehicle', nav_gas: 'Gas', nav_est: 'Scams', nav_hog: 'Home',
-      nav_via: 'Public spaces', nav_com: 'Shopping & banking', nav_men: 'Minors online', nav_vial: 'Road safety'
+      nav_via: 'Public spaces', nav_cam: 'Hiking', nav_com: 'Shopping & banking', nav_men: 'Minors online', nav_vial: 'Road safety'
     },
     pt: {
       page_title_tips: 'Dicas de segurança - Polícia da Terra do Fogo',
@@ -42,9 +52,14 @@
       tips_soon: 'Em breve, dicas para a sua segurança',
       eyebrow_tips: 'Dicas de segurança',
       eyebrow_citizen: 'Segurança cidadã',
+      eyebrow_outdoors: 'Via pública e natureza',
+      cat_home: 'Moradia',
+      cat_outdoors: 'Via pública e natureza',
+      cat_road: 'Trânsito e rodovias',
+      cat_digital: 'Golpes e ambiente digital',
       tips_sources: 'Fontes de consulta',
       nav_vac: 'Férias', nav_veh: 'Veículo', nav_gas: 'Gás', nav_est: 'Golpes', nav_hog: 'Moradia',
-      nav_via: 'Via pública', nav_com: 'Compras e bancos', nav_men: 'Menores na internet', nav_vial: 'Segurança viária'
+      nav_via: 'Via pública', nav_cam: 'Caminhada', nav_com: 'Compras e bancos', nav_men: 'Menores na internet', nav_vial: 'Segurança viária'
     }
   };
 
@@ -121,7 +136,15 @@
         'Mantené la visibilidad', 'Circulá con luces bajas. No te detengas en curvas, pendientes o lugares de poca visibilidad.',
         'Sin alcohol y sin distracciones', 'No consumas alcohol si vas a conducir. Usá el celular únicamente con el vehículo detenido en un lugar seguro.',
         '',
-        'Conducción en rutas con nieve — Vialidad Nacional', '']
+        'Conducción en rutas con nieve — Vialidad Nacional', ''],
+      cam: ['Caminatas y senderismo', 'PLANIFICÁ · EQUIPATE · AVISÁ TU RUTA', 'Antes de salir a caminar por senderos o zonas de montaña, preparate y avisá.',
+        'Avisá tu recorrido', 'Informá a alguien de confianza adónde vas, por qué sendero y a qué hora estimada regresás.',
+        'Consultá el clima y la luz', 'Revisá el pronóstico y calculá las horas de luz natural. En Tierra del Fuego el tiempo cambia rápido.',
+        'Llevá equipo adecuado', 'Usá calzado e indumentaria impermeable y abrigada, y llevá agua, alimento, linterna y batería cargada.',
+        'No te salgas del sendero', 'Respetá la señalización, caminá acompañado si es posible y regresá si el clima empeora.',
+        'Si te desorientás o sufrís un accidente', 'Quedate en un lugar visible y resguardado del viento. Si tenés señal, llamá al 101 o al 911 y compartí tu ubicación.',
+        'Recordá: avisar tu ruta / ropa adecuada / regresar antes de que oscurezca',
+        'Recomendaciones para trekking y senderismo', '']
     },
 
     en: {
@@ -271,7 +294,15 @@
         'Mantenha a visibilidade', 'Circule com farol baixo. Não pare em curvas, ladeiras ou locais de pouca visibilidade.',
         'Sem álcool e sem distrações', 'Não consuma álcool se for dirigir. Use o celular apenas com o veículo parado em um local seguro.',
         '',
-        'Condução em rodovias com neve — Vialidade Nacional', '']
+        'Condução em rodovias com neve — Vialidade Nacional', ''],
+      cam: ['Caminhadas e trilhas', 'PLANEJE · EQUIPE-SE · AVISE SUA ROTA', 'Antes de sair para caminhar em trilhas ou áreas de montanha, prepare-se e avise.',
+        'Avise seu trajeto', 'Informe a alguém de confiança para onde vai, por qual trilha e o horário estimado de retorno.',
+        'Consulte o clima e a luz', 'Verifique a previsão e calcule as horas de luz natural. Na Terra do Fogo o tempo muda rápido.',
+        'Leve equipamento adequado', 'Use calçado e roupa impermeável e agasalhada, e leve água, alimento, lanterna e bateria carregada.',
+        'Não saia da trilha', 'Respeite a sinalização, caminhe acompanhado se possível e retorne se o clima piorar.',
+        'Se se desorientar ou sofrer um acidente', 'Fique em um local visível e abrigado do vento. Se tiver sinal, ligue para 101 ou 911 e compartilhe sua localização.',
+        'Lembre-se: avisar sua rota / roupa adequada / retornar antes de escurecer',
+        'Recomendações para trekking e caminhadas', '']
     }
   };
 

@@ -18,7 +18,42 @@
   <link rel="stylesheet" href="css/styles.css">
   <script src="js/i18n.js"></script>
   <script src="js/i18n-consejos.js"></script>
-<script src="js/pwa.js" defer></script><script src="js/main.js" defer></script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap"></head>
+<script src="js/pwa.js" defer></script><script src="js/main.js" defer></script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,1,0&display=swap">
+  <style>
+    .tips-category {
+      margin-top: 2.25rem;
+    }
+    .tips-category__title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      margin: 0 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid currentColor;
+      opacity: 0.9;
+    }
+    .tips-nav--grouped {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .tips-nav__group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .tips-nav__label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      opacity: 0.75;
+      margin-right: 0.25rem;
+    }
+  </style>
+</head>
 
 <body>
   <section class="pdtf-safety">
@@ -52,19 +87,34 @@
 
         <!-- CONSEJOS TEMPORALMENTE OCULTOS
              (ya traducidos a ES/EN/PT en js/i18n-consejos.js: al descomentar funcionan directamente)
-        <nav class="tips-nav" aria-label="Temas">
-          <a href="#vacaciones" data-i18n="nav_vac">Vacaciones</a>
-          <a href="#vehiculo" data-i18n="nav_veh">Vehículo</a>
-          <a href="#gas" data-i18n="nav_gas">Gas</a>
-          <a href="#estafas" data-i18n="nav_est">Estafas</a>
-          <a href="#hogar" data-i18n="nav_hog">Hogar</a>
-          <a href="#via-publica" data-i18n="nav_via">Vía pública</a>
-          <a href="#compras" data-i18n="nav_com">Compras y bancos</a>
-          <a href="#menores" data-i18n="nav_men">Menores en internet</a>
-          <a href="#vial" data-i18n="nav_vial">Seguridad vial</a>
+        <nav class="tips-nav tips-nav--grouped" aria-label="Temas">
+          <div class="tips-nav__group">
+            <span class="tips-nav__label" data-i18n="cat_home">Hogar</span>
+            <a href="#hogar" data-i18n="nav_hog">Hogar</a>
+            <a href="#vacaciones" data-i18n="nav_vac">Vacaciones</a>
+            <a href="#gas" data-i18n="nav_gas">Gas</a>
+          </div>
+          <div class="tips-nav__group">
+            <span class="tips-nav__label" data-i18n="cat_outdoors">Vía pública y naturaleza</span>
+            <a href="#via-publica" data-i18n="nav_via">Vía pública</a>
+            <a href="#caminata" data-i18n="nav_cam">Caminata</a>
+          </div>
+          <div class="tips-nav__group">
+            <span class="tips-nav__label" data-i18n="cat_road">Tránsito y rutas</span>
+            <a href="#vehiculo" data-i18n="nav_veh">Vehículo</a>
+            <a href="#vial" data-i18n="nav_vial">Seguridad vial</a>
+          </div>
+          <div class="tips-nav__group">
+            <span class="tips-nav__label" data-i18n="cat_digital">Estafas y entorno digital</span>
+            <a href="#estafas" data-i18n="nav_est">Estafas</a>
+            <a href="#compras" data-i18n="nav_com">Compras y bancos</a>
+            <a href="#menores" data-i18n="nav_men">Menores en internet</a>
+          </div>
         </nav>
 
-        <div class="tips-list">
+        <section class="tips-category" id="cat-hogar">
+          <h2 class="tips-category__title" data-i18n="cat_home">Hogar</h2>
+          <div class="tips-list">
 
           <article class="tips-card" id="vacaciones">
             <div class="tips-card__head">
@@ -409,7 +459,45 @@
             </div>
           </article>
 
+          <article class="tips-card" id="caminata">
+            <div class="tips-card__head">
+              <p class="tips-card__eyebrow"><span data-i18n="eyebrow_outdoors">Vía pública y naturaleza</span> / 02</p>
+              <h2 class="tips-card__title" data-i18n="cam_title">Caminatas y senderismo</h2>
+              <span class="tips-card__badge" data-i18n="cam_badge">PLANIFICÁ · EQUIPATE · AVISÁ TU RUTA</span>
+            </div>
+            <div class="tips-card__body">
+              <p class="tips-card__intro" data-i18n="cam_intro">Antes de salir a caminar por senderos o zonas de montaña, preparate y avisá.</p>
+              <ol class="tips-steps">
+                <li class="tips-step"><span class="tips-step__num">01</span>
+                  <div><span class="tips-step__title" data-i18n="cam_1t">Avisá tu recorrido</span><span class="tips-step__desc" data-i18n="cam_1d">Informá a alguien de confianza adónde vas, por qué sendero y a qué hora estimada regresás.</span></div>
+                </li>
+                <li class="tips-step"><span class="tips-step__num">02</span>
+                  <div><span class="tips-step__title" data-i18n="cam_2t">Consultá el clima y la luz</span><span class="tips-step__desc" data-i18n="cam_2d">Revisá el pronóstico y calculá las horas de luz natural. En Tierra del Fuego el tiempo cambia rápido.</span></div>
+                </li>
+                <li class="tips-step"><span class="tips-step__num">03</span>
+                  <div><span class="tips-step__title" data-i18n="cam_3t">Llevá equipo adecuado</span><span class="tips-step__desc" data-i18n="cam_3d">Usá calzado e indumentaria impermeable y abrigada, y llevá agua, alimento, linterna y batería cargada.</span></div>
+                </li>
+                <li class="tips-step"><span class="tips-step__num">04</span>
+                  <div><span class="tips-step__title" data-i18n="cam_4t">No te salgas del sendero</span><span class="tips-step__desc" data-i18n="cam_4d">Respetá la señalización, caminá acompañado si es posible y regresá si el clima empeora.</span></div>
+                </li>
+              </ol>
+              <div class="tips-alert">
+                <h3 class="tips-alert__title" data-i18n="cam_at">Si te desorientás o sufrís un accidente</h3>
+                <p class="tips-alert__text" data-i18n="cam_ad">Quedate en un lugar visible y resguardado del viento. Si tenés señal, llamá al 101 o al 911 y compartí tu ubicación.</p>
+              </div>
+              <div class="tips-sources">
+                <p class="tips-sources__title" data-i18n="cam_rem">Recordá: avisar tu ruta / ropa adecuada / regresar antes de que oscurezca</p>
+                <p class="tips-sources__title tips-sources__title--spaced" data-i18n="tips_sources">Fuentes de consulta</p>
+                <ul>
+                  <li><a href="https://www.argentina.gob.ar/parquesnacionales/cuidados-y-recomendaciones"
+                      target="_blank" rel="noopener" data-i18n="cam_s1">Recomendaciones para trekking y senderismo</a></li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
         </div>
+        </section>
         FIN CONSEJOS TEMPORALMENTE OCULTOS -->
       </main>
 
